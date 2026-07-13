@@ -26,8 +26,8 @@ export default function Hero() {
       </div>
 
       {/* Editorial gradient: heavy on the left where the type sits, clear on the right */}
-      <div className="absolute inset-0 bg-gradient-to-r from-charcoal-950 via-charcoal-950/80 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-transparent to-charcoal-950/40" />
+      <div className="absolute inset-0 bg-gradient-to-r from-charcoal-950/90 via-charcoal-950/65 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-charcoal-950 via-transparent to-charcoal-950/30" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pb-16 sm:pb-20 pt-32">
         <div className="max-w-2xl">
