@@ -41,9 +41,13 @@ export default function Footer() {
             <div className="mb-5">
               <LogoStacked className="h-24 w-auto" />
             </div>
-            <p className="text-charcoal-500 text-sm leading-relaxed mb-6">
+            <p className="text-charcoal-500 text-sm leading-relaxed mb-4">
               Premium bartending services for every occasion. Crafting unforgettable
               experiences, one cocktail at a time.
+            </p>
+            <p className="text-charcoal-500 text-sm mb-6">
+              Founded &amp; run by <span className="text-charcoal-300 font-medium">Ashwin Lokanath</span>
+              <span className="block text-charcoal-600 text-xs mt-0.5">Bengaluru · Since 2024</span>
             </p>
             <div className="flex items-center gap-3">
               {socials.map((s, i) => (
@@ -100,20 +104,20 @@ export default function Footer() {
             </h4>
             <ul className="space-y-4">
               <li>
-                <a href="tel:+1234567890" className="flex items-start gap-3 group">
+                <a href="tel:+919663929391" className="flex items-start gap-3 group">
                   <Phone className="w-4 h-4 text-gold-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-charcoal-500 text-sm group-hover:text-charcoal-300 transition-colors">+1 (234) 567-890</span>
+                  <span className="text-charcoal-500 text-sm group-hover:text-charcoal-300 transition-colors">+91 96639 29391</span>
                 </a>
               </li>
               <li>
-                <a href="mailto:hello@thebartenderscompany.com" className="flex items-start gap-3 group">
+                <a href="mailto:ashwinlokanath009@gmail.com" className="flex items-start gap-3 group">
                   <Mail className="w-4 h-4 text-gold-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-charcoal-500 text-sm group-hover:text-charcoal-300 transition-colors">hello@thebartenderscompany.com</span>
+                  <span className="text-charcoal-500 text-sm group-hover:text-charcoal-300 transition-colors break-all">ashwinlokanath009@gmail.com</span>
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-gold-500 mt-0.5 flex-shrink-0" />
-                <span className="text-charcoal-500 text-sm">New York, NY & Surrounding Areas</span>
+                <span className="text-charcoal-500 text-sm">Bengaluru, India &amp; surrounding areas</span>
               </li>
             </ul>
           </div>

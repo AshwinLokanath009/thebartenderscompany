@@ -3,8 +3,8 @@ import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import heroBg from '../assets/images/michael-odelberth-6xyLifyRV70-unsplash.jpg';
 
 const facts = [
-  '500+ events poured',
-  'New York & nearby',
+  'Bengaluru, India',
+  'Private & corporate events',
   'Licensed & insured',
 ];
 
@@ -40,7 +40,7 @@ export default function Hero() {
           >
             <span className="w-8 h-px bg-gold-500" />
             <span className="text-[11px] sm:text-xs tracking-[0.25em] uppercase text-gold-400 font-medium">
-              Private Bar Hire · Est. 2016
+              Private Bar Hire · Est. 2024
             </span>
           </motion.div>
 
@@ -65,7 +65,7 @@ export default function Hero() {
               >
                 <motion.path
                   d="M3 8 C 45 3, 90 3, 130 6 S 185 9, 197 5"
-                  stroke="#d4a017"
+                  stroke="#f2c40d"
                   strokeWidth="3"
                   strokeLinecap="round"
                   initial={{ pathLength: 0 }}
