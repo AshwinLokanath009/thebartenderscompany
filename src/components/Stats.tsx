@@ -9,9 +9,9 @@ import { FadeIn } from './FadeIn';
  * real figures for The Bartenders Company.
  */
 const stats = [
-  { icon: Users,   value: 250, suffix: '+', label: 'Guests Served' },
-  { icon: Martini, value: 30,  suffix: '+', label: 'Expert Bartenders' },
-  { icon: MapPin,  value: 6,   suffix: '',  label: 'Cities Served' },
+  { icon: Users,   value: 150, suffix: '+', label: 'Events Served' },
+  { icon: Martini, value: 25,  suffix: '+', label: 'Expert Bartenders' },
+  { icon: MapPin,  value: 3,   suffix: '',  label: 'Cities Served' },
 ];
 
 function useCountUp(target: number, active: boolean, duration = 1400) {
