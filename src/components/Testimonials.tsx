@@ -37,7 +37,7 @@ export default function Testimonials() {
   return (
     <section
       className="section-padding relative overflow-hidden"
-      style={{ background: 'linear-gradient(180deg, #080808 0%, #0d0d0d 100%)' }}
+      style={{ background: 'linear-gradient(180deg, #161616 0%, #1c1c1c 100%)' }}
     >
       <div className="absolute inset-0 pointer-events-none opacity-20"
         style={{ backgroundImage: 'radial-gradient(ellipse at center, rgba(212,160,23,0.08) 0%, transparent 70%)' }}
