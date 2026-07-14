@@ -1,5 +1,5 @@
 import { Instagram, Facebook, Twitter, Youtube, Phone, Mail, MapPin } from 'lucide-react';
-import { LogoMark } from './Logo';
+import { LogoStacked } from './Logo';
 
 const quickLinks = [
   { label: 'Home',          href: '#home' },
@@ -38,14 +38,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-full bg-gold-gradient flex items-center justify-center shadow-md shadow-gold-600/30">
-                <LogoMark className="w-7 h-7 text-charcoal-950" />
-              </div>
-              <span className="font-serif font-black leading-none tracking-tight">
-                <span className="block text-[15px] uppercase text-gradient-gold">The Bartenders</span>
-                <span className="block text-[11px] uppercase tracking-[0.35em] text-white/90">Company</span>
-              </span>
+            <div className="mb-5">
+              <LogoStacked className="h-24 w-auto" />
             </div>
             <p className="text-charcoal-500 text-sm leading-relaxed mb-6">
               Premium bartending services for every occasion. Crafting unforgettable
