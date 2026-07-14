@@ -4,17 +4,18 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Brand lemon-gold — sampled to match the logo
         gold: {
-          50:  '#fffbeb',
-          100: '#fef3c7',
-          200: '#fde68a',
-          300: '#fcd34d',
-          400: '#fbbf24',
-          500: '#f59e0b',
-          600: '#d4a017',
-          700: '#b7860d',
-          800: '#926c0a',
-          900: '#78530a',
+          50:  '#fffdf0',
+          100: '#fef8cc',
+          200: '#fdee94',
+          300: '#fbdf52',
+          400: '#f7d130',
+          500: '#f2c40d',
+          600: '#d9a800',
+          700: '#a87f06',
+          800: '#82620b',
+          900: '#5f480c',
         },
         charcoal: {
           50:  '#f7f7f7',
@@ -32,7 +33,7 @@ export default {
       },
       fontFamily: {
         sans:  ['Inter', 'system-ui', 'sans-serif'],
-        serif: ['Playfair Display', 'Georgia', 'serif'],
+        serif: ['Fraunces', 'Playfair Display', 'Georgia', 'serif'],
       },
       animation: {
         'fade-in':     'fadeIn 0.6s ease-out forwards',
@@ -47,8 +48,8 @@ export default {
         shimmer: { '0%': { backgroundPosition: '-200% 0' }, '100%': { backgroundPosition: '200% 0' } },
       },
       backgroundImage: {
-        'gold-gradient': 'linear-gradient(135deg, #d4a017 0%, #f59e0b 50%, #d4a017 100%)',
-        'gold-shimmer':  'linear-gradient(90deg, #d4a017 0%, #fcd34d 50%, #d4a017 100%)',
+        'gold-gradient': 'linear-gradient(135deg, #d9a800 0%, #f2c40d 50%, #f7d130 100%)',
+        'gold-shimmer':  'linear-gradient(90deg, #d9a800 0%, #fbdf52 50%, #d9a800 100%)',
       },
     },
   },

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, GlassWater } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import { LogoLockup } from './Logo';
 
 const links = [
   { label: 'Home',     href: '#home' },
@@ -36,18 +37,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <button
-            onClick={() => handleNav('#home')}
-            className="flex items-center gap-2.5 group"
-          >
-            <div className="w-9 h-9 rounded-full bg-gold-gradient flex items-center justify-center shadow-md shadow-gold-600/30 group-hover:shadow-gold-500/50 transition-shadow">
-              <GlassWater className="w-5 h-5 text-charcoal-950" />
-            </div>
-            <span className="font-serif font-semibold text-xl tracking-wide">
-              <span className="text-gradient-gold">The Bartenders</span>
-              <span className="text-white"> Co.</span>
-            </span>
-          </button>
+          <LogoLockup onClick={() => handleNav('#home')} />
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-8">

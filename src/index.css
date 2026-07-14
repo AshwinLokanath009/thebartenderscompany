@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -18,22 +18,22 @@
     background: rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(212, 160, 23, 0.15);
+    border: 1px solid rgba(242, 196, 13, 0.15);
   }
   .glass-dark {
     background: rgba(8, 8, 8, 0.6);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(212, 160, 23, 0.2);
+    border: 1px solid rgba(242, 196, 13, 0.2);
   }
   .text-gradient-gold {
-    background: linear-gradient(135deg, #fcd34d 0%, #d4a017 50%, #fbbf24 100%);
+    background: linear-gradient(135deg, #fbdf52 0%, #f2c40d 50%, #f7d130 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
   .gold-border {
-    border: 1px solid rgba(212, 160, 23, 0.4);
+    border: 1px solid rgba(242, 196, 13, 0.4);
   }
   .section-padding {
     @apply py-20 md:py-28 px-4 sm:px-6 lg:px-8;
@@ -52,7 +52,7 @@
   .text-shimmer {
     background: linear-gradient(
       100deg,
-      #d4a017 0%, #fcd34d 20%, #fffbeb 40%, #fcd34d 60%, #d4a017 100%
+      #d9a800 0%, #f7d130 20%, #fffdf0 40%, #f7d130 60%, #d9a800 100%
     );
     background-size: 200% auto;
     -webkit-background-clip: text;
@@ -82,7 +82,7 @@
   }
 
   .drop-shadow-gold {
-    filter: drop-shadow(0 0 22px rgba(212, 160, 23, 0.35));
+    filter: drop-shadow(0 0 22px rgba(242, 196, 13, 0.35));
   }
 
   /* Subtle film grain — adds analog texture so the page doesn't read as flat/synthetic */

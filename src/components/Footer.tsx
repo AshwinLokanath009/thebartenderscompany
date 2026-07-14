@@ -1,4 +1,5 @@
-import { GlassWater, Instagram, Facebook, Twitter, Youtube, Phone, Mail, MapPin } from 'lucide-react';
+import { Instagram, Facebook, Twitter, Youtube, Phone, Mail, MapPin } from 'lucide-react';
+import { LogoMark } from './Logo';
 
 const quickLinks = [
   { label: 'Home',          href: '#home' },
@@ -37,13 +38,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2.5 mb-5">
-              <div className="w-9 h-9 rounded-full bg-gold-gradient flex items-center justify-center shadow-md shadow-gold-600/30">
-                <GlassWater className="w-5 h-5 text-charcoal-950" />
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-full bg-gold-gradient flex items-center justify-center shadow-md shadow-gold-600/30">
+                <LogoMark className="w-7 h-7 text-charcoal-950" />
               </div>
-              <span className="font-serif font-semibold text-xl">
-                <span className="text-gradient-gold">The Bartenders</span>
-                <span className="text-white"> Co.</span>
+              <span className="font-serif font-black leading-none tracking-tight">
+                <span className="block text-[15px] uppercase text-gradient-gold">The Bartenders</span>
+                <span className="block text-[11px] uppercase tracking-[0.35em] text-white/90">Company</span>
               </span>
             </div>
             <p className="text-charcoal-500 text-sm leading-relaxed mb-6">
