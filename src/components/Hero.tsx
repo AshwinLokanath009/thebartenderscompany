@@ -119,9 +119,11 @@ export default function Hero() {
             className="mt-14 flex flex-wrap items-center gap-y-2 text-xs sm:text-sm text-charcoal-400"
           >
             {facts.map((f, i) => (
-              <li key={f} className="flex items-center gap-2 mr-6">
-                {i > 0 && <span className="inline-block w-1 h-1 rounded-full bg-lemon-500/70" />}
-                <span>{f}</span>
+              <li key={f} className="mr-6">
+                <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                  {i > 0 && <span className="inline-block w-1 h-1 rounded-full bg-lemon-500/70" />}
+                  <span>{f}</span>
+                </span>
               </li>
             ))}
           </motion.ul>
