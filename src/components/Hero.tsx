@@ -118,7 +118,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="mt-14 flex flex-wrap items-center gap-y-2 text-xs sm:text-sm text-charcoal-400"
           >
-            {facts.map((f, i) => (
+            {facts.map((f) => (
               <li key={f} className="mr-6">
                 <span className="inline-flex items-center gap-2 whitespace-nowrap">
                   <span className="inline-block w-1 h-1 rounded-full bg-lemon-500/70" />

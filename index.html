@@ -6,14 +6,8 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f6de26" />
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
-    <!-- Fonts are linked here rather than @import-ed from index.css: an @import
-         can't start downloading until the stylesheet itself has parsed, which
-         serialises the requests. Only the weights actually used are requested
-         (Fraunces 400/600/700, Inter 400/500/600). -->
-    <!-- The hero photo is the LCP element but it's referenced from JS, so the
-         preload scanner can't see it until the bundle has run. Vite rewrites
-         this src path to the hashed asset at build time. -->
     <link
       rel="preload"
       as="image"
@@ -23,20 +17,23 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Part of the gallery is served from Pexels; opening the connection now
-         saves the DNS + TLS round trips when those images are scrolled into. -->
     <link rel="preconnect" href="https://images.pexels.com" crossorigin />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap"
     />
-    <title>The Bartenders Company — Premium Bartender Services in Bengaluru</title>
-    <meta name="description" content="Bengaluru-based professional bartenders for weddings, corporate events, birthday parties, and private events. Custom cocktail menus and mobile bar hire. Founded by Ashwin Lokanath." />
-    <meta property="og:title" content="The Bartenders Company — Premium Bartender Services" />
-    <meta property="og:description" content="Elevate your event with world-class bartenders and custom cocktail menus." />
-    <meta property="og:image" content="https://bolt.new/static/og_default.png" />
+    <title>The Bartenders Company | Premium Bartender Services</title>
+    <meta name="description" content="Professional bartender services for weddings, corporate events, birthday parties, and private celebrations in Bengaluru and beyond." />
+    <link rel="canonical" href="/" />
+    <meta property="og:title" content="The Bartenders Company | Premium Bartender Services" />
+    <meta property="og:description" content="Professional bartender services for weddings, corporate events, birthday parties, and private celebrations." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="The Bartenders Company" />
+    <meta property="og:image" content="/og-image.svg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://bolt.new/static/og_default.png" />
+    <meta name="twitter:title" content="The Bartenders Company | Premium Bartender Services" />
+    <meta name="twitter:description" content="Professional bartender services for weddings, corporate events, birthday parties, and private celebrations." />
+    <meta name="twitter:image" content="/og-image.svg" />
   </head>
   <body>
     <div id="root"></div>
