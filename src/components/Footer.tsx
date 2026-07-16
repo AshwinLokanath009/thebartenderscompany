@@ -1,11 +1,14 @@
 import { Instagram, Facebook, Twitter, Youtube, Phone, Mail, MapPin } from 'lucide-react';
 import { LogoStacked } from './Logo';
+import { hasReviews } from './Testimonials';
 
+// The testimonials section hides itself until there are real reviews, so its
+// link is filtered out too — otherwise it scrolls to nothing.
 const quickLinks = [
   { label: 'Home',          href: '#home' },
   { label: 'Services',      href: '#services' },
   { label: 'Gallery',       href: '#gallery' },
-  { label: 'Testimonials',  href: '#testimonials' },
+  ...(hasReviews ? [{ label: 'Testimonials', href: '#testimonials' }] : []),
   { label: 'Contact',       href: '#contact' },
 ];
 

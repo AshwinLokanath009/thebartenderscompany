@@ -1,9 +1,6 @@
 import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
 import { FadeIn } from './FadeIn';
-// 4:5 crop of "Review 1.jpg" — the original is a full-length candid, which
-// leaves his face tiny in a testimonial-sized frame. Original is untouched.
-import reviewPhoto from '../assets/images/review-1-portrait.jpg';
 
 type Review = {
   /** The client's own words, as close to verbatim as you have them. */
@@ -21,9 +18,10 @@ type Review = {
 /**
  * HOW TO ADD REAL REVIEWS
  * ----------------------
- * Paste them into this array — nothing else needs changing. One review renders
- * as a large featured card; two or more render as a grid. While it's empty the
- * section shows a visibly-unfinished slot, which is why it must not ship empty.
+ * Paste them into this array — nothing else needs changing. The whole section
+ * hides itself while this is empty and comes back on its own as soon as there's
+ * something real in it, so the page never shows an unfinished slot. One review
+ * renders as a large featured card; two or more render as a grid.
  *
  *   const reviews: Review[] = [
  *     {
@@ -36,6 +34,13 @@ type Review = {
  *     },
  *   ];
  *
+ * To attach a photo, import it at the top of this file and pass it as `photo`:
+ *
+ *   import reviewPhoto from '../assets/images/review-1-portrait.jpg';
+ *
+ * (That file is a 4:5 crop of "Review 1.jpg" — the original is a full-length
+ * candid, which leaves his face tiny in a testimonial-sized frame.)
+ *
  * Keep their voice. Real reviews are specific and a little uneven; that's what
  * makes a reader believe them. Polished, balanced copy reads as fake — so don't
  * tidy the rough edges out. Never invent a quote, a name or a rating: attaching
@@ -45,8 +50,8 @@ type Review = {
  */
 const reviews: Review[] = [];
 
-/** The photo we already have, shown while its review is still outstanding. */
-const pendingPhoto = reviewPhoto;
+/** Footer uses this to drop its "Testimonials" link while the section is hidden. */
+export const hasReviews = reviews.length > 0;
 
 function Stars({ rating }: { rating: number }) {
   return (
@@ -103,6 +108,10 @@ function ReviewCard({ review, i }: { review: Review; i: number }) {
 }
 
 export default function Testimonials() {
+  // Nothing real to show yet — render nothing rather than a half-finished slot.
+  // Add to `reviews` above and the section returns on its own.
+  if (!hasReviews) return null;
+
   return (
     <section id="testimonials" className="section-padding relative overflow-hidden bg-cream-100">
       <div
@@ -121,11 +130,9 @@ export default function Testimonials() {
           <h2 className="font-serif text-4xl sm:text-5xl font-bold text-charcoal-950 mb-5">
             What Our <span className="highlight-lemon">Clients Say</span>
           </h2>
-          {reviews.length > 0 && (
-            <p className="text-charcoal-600 text-lg max-w-xl mx-auto leading-relaxed">
-              Real experiences from clients who trusted us with their most cherished events.
-            </p>
-          )}
+          <p className="text-charcoal-600 text-lg max-w-xl mx-auto leading-relaxed">
+            Real experiences from clients who trusted us with their most cherished events.
+          </p>
         </FadeIn>
 
         {reviews.length >= 2 ? (
@@ -143,59 +150,44 @@ export default function Testimonials() {
 }
 
 /** Single-review layout: big portrait beside the quote. */
-function FeaturedReview({ review }: { review?: Review }) {
+function FeaturedReview({ review }: { review: Review }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-      className="card-light rounded-3xl overflow-hidden grid grid-cols-1 md:grid-cols-[minmax(0,20rem)_1fr] md:min-h-[28rem]"
+      className={`card-light rounded-3xl overflow-hidden grid grid-cols-1 md:min-h-[28rem] ${
+        review.photo ? 'md:grid-cols-[minmax(0,20rem)_1fr]' : ''
+      }`}
     >
       {/* The card needs its own min-height or a short quote collapses this to a strip. */}
-      <div className="relative aspect-[4/5] md:aspect-auto md:h-full">
-        <img
-          src={review?.photo ?? pendingPhoto}
-          alt={review ? review.name : 'Client photographed at the event, accompanying their review'}
-          width={550}
-          height={690}
-          loading="lazy"
-          className="absolute inset-0 w-full h-full object-cover object-center"
-        />
-      </div>
+      {review.photo && (
+        <div className="relative aspect-[4/5] md:aspect-auto md:h-full">
+          <img
+            src={review.photo}
+            alt={review.name}
+            width={550}
+            height={690}
+            loading="lazy"
+            className="absolute inset-0 w-full h-full object-cover object-center"
+          />
+        </div>
+      )}
 
       <div className="p-8 sm:p-10 flex flex-col justify-center relative">
         <Quote className="absolute top-8 right-8 w-10 h-10 text-lemon-500" />
 
-        {review ? (
-          <>
-            {review.rating ? <Stars rating={review.rating} /> : null}
-            <blockquote className="font-serif text-2xl sm:text-3xl leading-snug text-charcoal-950 mb-6">
-              “{review.quote}”
-            </blockquote>
-            <div className="pt-5 border-t border-charcoal-950/10">
-              <div className="font-semibold text-charcoal-950">{review.name}</div>
-              {review.role && (
-                <div className="text-sm text-charcoal-500 mt-0.5">{review.role}</div>
-              )}
-            </div>
-          </>
-        ) : (
-          <div className="rounded-xl border-2 border-dashed border-charcoal-300 bg-cream-100/60 p-6">
-            <span className="inline-block text-[10px] font-bold tracking-widest uppercase text-charcoal-950 bg-lemon-500 rounded px-2 py-1 mb-3">
-              Placeholder — not a real review
-            </span>
-            <p className="text-charcoal-700 text-sm leading-relaxed">
-              Add real reviews to the <code className="font-mono text-xs bg-white px-1 py-0.5 rounded border border-charcoal-200">reviews</code>{' '}
-              array at the top of{' '}
-              <code className="font-mono text-xs bg-white px-1 py-0.5 rounded border border-charcoal-200">
-                Testimonials.tsx
-              </code>
-              . One shows as this featured card; two or more switch to a grid
-              automatically.
-            </p>
-          </div>
-        )}
+        {review.rating ? <Stars rating={review.rating} /> : null}
+        <blockquote className="font-serif text-2xl sm:text-3xl leading-snug text-charcoal-950 mb-6">
+          “{review.quote}”
+        </blockquote>
+        <div className="pt-5 border-t border-charcoal-950/10">
+          <div className="font-semibold text-charcoal-950">{review.name}</div>
+          {review.role && (
+            <div className="text-sm text-charcoal-500 mt-0.5">{review.role}</div>
+          )}
+        </div>
       </div>
     </motion.div>
   );
