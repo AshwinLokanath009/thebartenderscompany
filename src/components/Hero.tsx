@@ -116,11 +116,11 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-14 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm text-charcoal-400"
+            className="mt-14 flex flex-wrap items-center gap-y-2 text-xs sm:text-sm text-charcoal-400"
           >
             {facts.map((f, i) => (
-              <li key={f} className="flex items-center gap-5">
-                {i > 0 && <span className="w-1 h-1 rounded-full bg-lemon-500/70" />}
+              <li key={f} className="flex items-center gap-2 mr-6">
+                {i > 0 && <span className="inline-block w-1 h-1 rounded-full bg-lemon-500/70" />}
                 <span>{f}</span>
               </li>
             ))}
