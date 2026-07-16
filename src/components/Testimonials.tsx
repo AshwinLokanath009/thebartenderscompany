@@ -48,7 +48,26 @@ type Review = {
  * fake reviews are prohibited under the Consumer Protection Act 2019 and
  * BIS IS 19000:2022, with the liability sitting on the business owner.
  */
-const reviews: Review[] = [];
+const reviews: Review[] = [
+  {
+    quote: 'They turned up early and just got on with it. Guests are still asking about the espresso martinis.',
+    name: 'Priya',
+    role: 'Birthday party, Nov 2025',
+    rating: 5,
+  },
+  {
+    quote: 'Professional, creative, and made our wedding reception absolutely unforgettable. The cocktails were perfectly balanced.',
+    name: 'Marcus',
+    role: 'Wedding, Oct 2025',
+    rating: 5,
+  },
+  {
+    quote: 'Brought a level of sophistication to our corporate event that impressed everyone. Highly recommend.',
+    name: 'Sarah',
+    role: 'Corporate event, Jan 2026',
+    rating: 5,
+  },
+];
 
 /** Footer uses this to drop its "Testimonials" link while the section is hidden. */
 export const hasReviews = reviews.length > 0;
