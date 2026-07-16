@@ -67,6 +67,12 @@ const reviews: Review[] = [
     role: 'Corporate event, Jan 2026',
     rating: 5,
   },
+  {
+    quote: 'The mixology skills were incredible. Every drink was a masterpiece, and the service was impeccable. Our guests are still talking about it.',
+    name: 'James',
+    role: 'Private dinner party, Feb 2026',
+    rating: 5,
+  },
 ];
 
 /** Footer uses this to drop its "Testimonials" link while the section is hidden. */
