@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ZoomIn } from 'lucide-react';
 import { FadeIn } from './FadeIn';
-import eventImg from '../assets/images/long-truong-Y5PXVs1LpY4-unsplash.jpg';
-import img1 from '../assets/images/IMG1.jpg';
-import img2 from '../assets/images/IMG2.jpg';
-import img3 from '../assets/images/IMG3.jpg';
-import img4 from '../assets/images/IMG4.jpg';
+import eventImg from '../assets/images/long-truong-Y5PXVs1LpY4-unsplash.webp';
+import img1 from '../assets/images/IMG1.webp';
+import img2 from '../assets/images/IMG2.webp';
+import img3 from '../assets/images/IMG3.webp';
+import img4 from '../assets/images/IMG4.webp';
 
 /**
  * Real work photos lead; stock fills out the grid behind them.
@@ -57,8 +57,8 @@ const images = [
   {
     src: eventImg,
     alt: 'Live event crowd under the lights',
-    w: 5472,
-    h: 3648,
+    w: 1100,
+    h: 733,
   },
   {
     src: 'https://images.pexels.com/photos/4021983/pexels-photo-4021983.jpeg?auto=compress&cs=tinysrgb&w=600&q=85',

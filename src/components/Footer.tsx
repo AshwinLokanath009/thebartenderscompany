@@ -1,6 +1,7 @@
 import { Instagram, Facebook, Twitter, Youtube, Phone, Mail, MapPin } from 'lucide-react';
 import { LogoStacked } from './Logo';
 import { hasReviews } from './Testimonials';
+import { scrollToSection } from '../lib/scroll';
 
 // The testimonials section hides itself until there are real reviews, so its
 // link is filtered out too — otherwise it scrolls to nothing.
@@ -29,9 +30,6 @@ const socials = [
 ];
 
 export default function Footer() {
-  const scroll = (href: string) =>
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
-
   return (
     <footer className="bg-charcoal-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10">
@@ -71,7 +69,7 @@ export default function Footer() {
               {quickLinks.map((l) => (
                 <li key={l.href}>
                   <button
-                    onClick={() => scroll(l.href)}
+                    onClick={() => scrollToSection(l.href)}
                     className="text-charcoal-500 hover:text-lemon-500 text-sm transition-colors duration-200 flex items-center gap-2 group"
                   >
                     <span className="w-1 h-1 rounded-full bg-lemon-500/50 group-hover:bg-lemon-500 transition-colors" />

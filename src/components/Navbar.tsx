@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { LogoLockup } from './Logo';
+import { scrollToSection } from '../lib/scroll';
 
 const links = [
   { label: 'Home',     href: '#home' },
@@ -24,7 +25,7 @@ export default function Navbar() {
 
   const handleNav = (href: string) => {
     setOpen(false);
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+    scrollToSection(href);
   };
 
   // At the top the bar floats over the dark hero photo; once scrolled it lands
@@ -80,6 +81,9 @@ export default function Navbar() {
           {/* Mobile toggle */}
           <button
             onClick={() => setOpen(!open)}
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
             className={`md:hidden p-2 ${onLight ? 'text-charcoal-950' : 'text-white'}`}
           >
             {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -91,6 +95,7 @@ export default function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
+            id="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}

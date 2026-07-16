@@ -36,7 +36,7 @@ type Review = {
  *
  * To attach a photo, import it at the top of this file and pass it as `photo`:
  *
- *   import reviewPhoto from '../assets/images/review-1-portrait.jpg';
+ *   import reviewPhoto from '../assets/images/review-1-portrait.webp';
  *
  * (That file is a 4:5 crop of "Review 1.jpg" — the original is a full-length
  * candid, which leaves his face tiny in a testimonial-sized frame.)

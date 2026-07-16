@@ -1,5 +1,5 @@
-import { useEffect, useRef, ReactNode } from 'react';
-import { motion, useInView, useAnimation, Variant } from 'framer-motion';
+import { ReactNode } from 'react';
+import { motion } from 'framer-motion';
 
 interface FadeInProps {
   children: ReactNode;
@@ -8,31 +8,22 @@ interface FadeInProps {
   className?: string;
 }
 
+/** Which way the content travels in from. `up` means it rises into place. */
+const offsets = {
+  up: { y: 40 },
+  down: { y: -40 },
+  left: { x: 40 },
+  right: { x: -40 },
+  none: {},
+} as const;
+
 export function FadeIn({ children, delay = 0, direction = 'up', className = '' }: FadeInProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
-  const controls = useAnimation();
-
-  const variants: Record<string, Variant> = {
-    hidden: {
-      opacity: 0,
-      y: direction === 'up' ? 40 : direction === 'down' ? -40 : 0,
-      x: direction === 'left' ? 40 : direction === 'right' ? -40 : 0,
-    },
-    visible: { opacity: 1, y: 0, x: 0 },
-  };
-
-  useEffect(() => {
-    if (isInView) controls.start('visible');
-  }, [isInView, controls]);
-
   return (
     <motion.div
-      ref={ref}
       className={className}
-      initial="hidden"
-      animate={controls}
-      variants={variants}
+      initial={{ opacity: 0, ...offsets[direction] }}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
+      viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.65, delay, ease: [0.25, 0.1, 0.25, 1] }}
     >
       {children}

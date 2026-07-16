@@ -1,9 +1,9 @@
-import markWhite from '../assets/images/logo-mark-white.png';
-import wordWhite from '../assets/images/logo-word-white.png';
-import logoWhite from '../assets/images/logo-white.png';
-import markInk from '../assets/images/logo-mark-ink.png';
-import wordInk from '../assets/images/logo-word-ink.png';
-import logoInk from '../assets/images/logo-ink.png';
+import markWhite from '../assets/images/logo-mark-white.webp';
+import wordWhite from '../assets/images/logo-word-white.webp';
+import logoWhite from '../assets/images/logo-white.webp';
+import markInk from '../assets/images/logo-mark-ink.webp';
+import wordInk from '../assets/images/logo-word-ink.webp';
+import logoInk from '../assets/images/logo-ink.webp';
 
 /**
  * The Bartenders Company brand logo.

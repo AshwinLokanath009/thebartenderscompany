@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Phone, Mail, MessageCircle, ArrowRight } from 'lucide-react';
 import { FadeIn } from './FadeIn';
-import contactBg from '../assets/images/ruben-mavarez-YA8NUxf8Wmk-unsplash.jpg';
+import contactBg from '../assets/images/ruben-mavarez-YA8NUxf8Wmk-unsplash.webp';
 
 export default function Contact() {
   return (

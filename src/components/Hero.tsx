@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight, ArrowRight } from 'lucide-react';
-import heroBg from '../assets/images/michael-odelberth-6xyLifyRV70-unsplash.jpg';
+import { scrollToSection } from '../lib/scroll';
+import heroBg from '../assets/images/michael-odelberth-6xyLifyRV70-unsplash.webp';
 
 const facts = [
   'Bengaluru, India',
@@ -9,9 +10,6 @@ const facts = [
 ];
 
 export default function Hero() {
-  const scroll = (href: string) =>
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
-
   return (
     <section
       id="home"
@@ -98,14 +96,14 @@ export default function Hero() {
             className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4"
           >
             <button
-              onClick={() => scroll('#contact')}
+              onClick={() => scrollToSection('#contact')}
               className="group inline-flex items-center gap-2 bg-lemon-500 hover:bg-lemon-400 text-charcoal-950 font-semibold text-sm tracking-wide px-7 py-3.5 rounded-sm transition-colors duration-200"
             >
               Check availability
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </button>
             <button
-              onClick={() => scroll('#gallery')}
+              onClick={() => scrollToSection('#gallery')}
               className="group inline-flex items-center gap-2 text-sm font-medium text-charcoal-200 hover:text-white transition-colors"
             >
               See a few nights we've done
