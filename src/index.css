@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@300;400;500;600&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,37 +7,60 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-charcoal-950 text-white antialiased;
+    @apply bg-cream-50 text-charcoal-900 antialiased;
+  }
+  ::selection {
+    background: #f6de26;
+    color: #0d0d0d;
   }
 }
 
 @layer utilities {
+  /* ---- Cards on light sections (the default surface) ---- */
+  .card-light {
+    background: #ffffff;
+    border: 1px solid rgba(13, 13, 13, 0.08);
+    box-shadow: 0 1px 2px rgba(13, 13, 13, 0.04);
+  }
+  .card-light-hover:hover {
+    border-color: rgba(246, 222, 38, 0.9);
+    box-shadow: 0 12px 28px -12px rgba(13, 13, 13, 0.18);
+  }
+
+  /* Frosted chip — used for the footer's social buttons on the dark base. */
   .glass {
     background: rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(242, 196, 13, 0.15);
+    border: 1px solid rgba(246, 222, 38, 0.15);
   }
-  .glass-dark {
-    background: rgba(22, 22, 22, 0.65);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(242, 196, 13, 0.2);
+
+  /* Light-section headline accent: a hand-swiped lemon marker behind the word.
+     Yellow text on white would fail contrast — the logo puts yellow *behind*
+     black ink, so the highlight does the same. */
+  .highlight-lemon {
+    position: relative;
+    display: inline-block;
+    isolation: isolate;
   }
-  .text-gradient-gold {
-    background: linear-gradient(135deg, #fbdf52 0%, #f2c40d 50%, #f7d130 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .highlight-lemon::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: -0.14em;
+    right: -0.14em;
+    bottom: 0.02em;
+    height: 0.42em;
+    background: #f6de26;
+    transform: rotate(-1.2deg);
+    border-radius: 2px 8px 4px 10px;
   }
-  .gold-border {
-    border: 1px solid rgba(242, 196, 13, 0.4);
-  }
+
   .section-padding {
     @apply py-20 md:py-28 px-4 sm:px-6 lg:px-8;
   }
 
-  /* Slow cinematic zoom for hero backgrounds */
+  /* Slow cinematic zoom on the hero photograph */
   .animate-kenburns {
     animation: kenburns 22s ease-in-out infinite alternate;
   }
@@ -48,44 +69,7 @@
     100% { transform: scale(1.2) translate(-1.5%, -1.5%); }
   }
 
-  /* Sweeping shimmer across gold text */
-  .text-shimmer {
-    background: linear-gradient(
-      100deg,
-      #d9a800 0%, #f7d130 20%, #fffdf0 40%, #f7d130 60%, #d9a800 100%
-    );
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: text-shimmer 5s linear infinite;
-  }
-  @keyframes text-shimmer {
-    to { background-position: 200% center; }
-  }
-
-  /* Breathing radial glow */
-  .animate-glow-pulse {
-    animation: glow-pulse 6s ease-in-out infinite;
-  }
-  @keyframes glow-pulse {
-    0%, 100% { opacity: 0.35; transform: scale(1); }
-    50%      { opacity: 0.6;  transform: scale(1.12); }
-  }
-
-  /* Slow conic rotation for accent rings */
-  .animate-spin-slow {
-    animation: spin-slow 24s linear infinite;
-  }
-  @keyframes spin-slow {
-    to { transform: rotate(360deg); }
-  }
-
-  .drop-shadow-gold {
-    filter: drop-shadow(0 0 22px rgba(242, 196, 13, 0.35));
-  }
-
-  /* Subtle film grain — adds analog texture so the page doesn't read as flat/synthetic */
+  /* Subtle film grain — adds analog texture so the hero doesn't read as flat */
   .grain::after {
     content: '';
     position: absolute;
@@ -98,10 +82,7 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .animate-kenburns,
-    .text-shimmer,
-    .animate-glow-pulse,
-    .animate-spin-slow {
+    .animate-kenburns {
       animation: none !important;
     }
   }

@@ -47,20 +47,20 @@ const card = {
 
 export default function Services() {
   return (
-    <section id="services" className="section-padding bg-charcoal-950 relative overflow-hidden">
+    <section id="services" className="section-padding bg-cream-50 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-gold-600/5 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-gold-600/5 blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-lemon-500/20 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-lemon-500/15 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative">
         <FadeIn className="text-center mb-16">
-          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-gold-500 mb-4">
+          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-charcoal-500 mb-4">
             What We Offer
           </span>
-          <h2 className="font-serif text-4xl sm:text-5xl font-bold text-white mb-5">
-            Our <span className="text-gradient-gold">Services</span>
+          <h2 className="font-serif text-4xl sm:text-5xl font-bold text-charcoal-950 mb-5">
+            Our <span className="highlight-lemon">Services</span>
           </h2>
-          <p className="text-charcoal-400 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-charcoal-600 text-lg max-w-2xl mx-auto leading-relaxed">
             From intimate gatherings to grand celebrations, our professional bartenders
             deliver world-class service at every event.
           </p>
@@ -78,14 +78,14 @@ export default function Services() {
               key={s.title}
               variants={card}
               whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="glass rounded-2xl p-8 group cursor-default"
+              className="card-light card-light-hover rounded-2xl p-8 group cursor-default transition-all duration-300"
             >
-              <div className="w-14 h-14 rounded-xl bg-gold-600/10 border border-gold-600/20 flex items-center justify-center text-gold-400 mb-6 group-hover:bg-gold-600/20 group-hover:border-gold-500/40 transition-all duration-300">
+              <div className="w-14 h-14 rounded-xl bg-lemon-500 flex items-center justify-center text-charcoal-950 mb-6 group-hover:bg-lemon-400 transition-all duration-300">
                 {s.icon}
               </div>
-              <h3 className="font-serif text-xl font-semibold text-white mb-3">{s.title}</h3>
-              <p className="text-charcoal-400 leading-relaxed text-sm">{s.desc}</p>
-              <div className="mt-6 h-px bg-gradient-to-r from-gold-600/30 to-transparent group-hover:from-gold-500/60 transition-all duration-300" />
+              <h3 className="font-serif text-xl font-semibold text-charcoal-950 mb-3">{s.title}</h3>
+              <p className="text-charcoal-600 leading-relaxed text-sm">{s.desc}</p>
+              <div className="mt-6 h-0.5 bg-gradient-to-r from-lemon-500 to-transparent group-hover:from-lemon-600 transition-all duration-300" />
             </motion.div>
           ))}
         </motion.div>

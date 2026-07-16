@@ -5,6 +5,28 @@
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6de26" />
+
+    <!-- Fonts are linked here rather than @import-ed from index.css: an @import
+         can't start downloading until the stylesheet itself has parsed, which
+         serialises the requests. Only the weights actually used are requested
+         (Fraunces 400/600/700, Inter 400/500/600). -->
+    <!-- The hero photo is the LCP element but it's referenced from JS, so the
+         preload scanner can't see it until the bundle has run. Vite rewrites
+         this src path to the hashed asset at build time. -->
+    <link
+      rel="preload"
+      as="image"
+      fetchpriority="high"
+      href="/src/assets/images/michael-odelberth-6xyLifyRV70-unsplash.jpg"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap"
+    />
     <title>The Bartenders Company — Premium Bartender Services in Bengaluru</title>
     <meta name="description" content="Bengaluru-based professional bartenders for weddings, corporate events, birthday parties, and private events. Custom cocktail menus and mobile bar hire. Founded by Ashwin Lokanath." />
     <meta property="og:title" content="The Bartenders Company — Premium Bartender Services" />

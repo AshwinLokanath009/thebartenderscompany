@@ -30,10 +30,7 @@ export default function Footer() {
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
-    <footer className="bg-charcoal-950 border-t border-gold-600/15">
-      {/* Top gradient line */}
-      <div className="h-px bg-gold-gradient opacity-40" />
-
+    <footer className="bg-charcoal-950">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
           {/* Brand */}
@@ -54,7 +51,7 @@ export default function Footer() {
                 <a
                   key={i}
                   href={s.href}
-                  className="w-9 h-9 rounded-full glass flex items-center justify-center text-charcoal-400 hover:text-gold-400 hover:border-gold-500/40 transition-all duration-200"
+                  className="w-9 h-9 rounded-full glass flex items-center justify-center text-charcoal-400 hover:text-lemon-500 hover:border-lemon-500/50 transition-all duration-200"
                 >
                   {s.icon}
                 </a>
@@ -72,9 +69,9 @@ export default function Footer() {
                 <li key={l.href}>
                   <button
                     onClick={() => scroll(l.href)}
-                    className="text-charcoal-500 hover:text-gold-400 text-sm transition-colors duration-200 flex items-center gap-2 group"
+                    className="text-charcoal-500 hover:text-lemon-500 text-sm transition-colors duration-200 flex items-center gap-2 group"
                   >
-                    <span className="w-1 h-1 rounded-full bg-gold-600/40 group-hover:bg-gold-400 transition-colors" />
+                    <span className="w-1 h-1 rounded-full bg-lemon-500/50 group-hover:bg-lemon-500 transition-colors" />
                     {l.label}
                   </button>
                 </li>
@@ -90,7 +87,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {services.map((s) => (
                 <li key={s} className="text-charcoal-500 text-sm flex items-center gap-2">
-                  <span className="w-1 h-1 rounded-full bg-gold-600/40" />
+                  <span className="w-1 h-1 rounded-full bg-lemon-500/50" />
                   {s}
                 </li>
               ))}
@@ -105,18 +102,18 @@ export default function Footer() {
             <ul className="space-y-4">
               <li>
                 <a href="tel:+919663929391" className="flex items-start gap-3 group">
-                  <Phone className="w-4 h-4 text-gold-500 mt-0.5 flex-shrink-0" />
+                  <Phone className="w-4 h-4 text-lemon-500 mt-0.5 flex-shrink-0" />
                   <span className="text-charcoal-500 text-sm group-hover:text-charcoal-300 transition-colors">+91 96639 29391</span>
                 </a>
               </li>
               <li>
                 <a href="mailto:ashwinlokanath009@gmail.com" className="flex items-start gap-3 group">
-                  <Mail className="w-4 h-4 text-gold-500 mt-0.5 flex-shrink-0" />
+                  <Mail className="w-4 h-4 text-lemon-500 mt-0.5 flex-shrink-0" />
                   <span className="text-charcoal-500 text-sm group-hover:text-charcoal-300 transition-colors break-all">ashwinlokanath009@gmail.com</span>
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-gold-500 mt-0.5 flex-shrink-0" />
+                <MapPin className="w-4 h-4 text-lemon-500 mt-0.5 flex-shrink-0" />
                 <span className="text-charcoal-500 text-sm">Bengaluru, India &amp; surrounding areas</span>
               </li>
             </ul>

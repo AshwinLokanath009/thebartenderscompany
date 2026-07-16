@@ -1,98 +1,123 @@
 import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
 import { FadeIn } from './FadeIn';
+// 4:5 crop of "Review 1.jpg" — the original is a full-length candid, which
+// leaves his face tiny in a testimonial-sized frame. Original is untouched.
+import reviewPhoto from '../assets/images/review-1-portrait.jpg';
 
-const testimonials = [
-  {
-    name: 'Sarah Mitchell',
-    role: 'Wedding Client',
-    rating: 5,
-    text: 'The Bartenders Company transformed our wedding reception into an absolutely magical evening. The bartenders were professional, personable, and the custom cocktails were the talk of the night!',
-    avatar: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&q=80',
-  },
-  {
-    name: 'James Thornton',
-    role: 'Corporate Event Manager',
-    rating: 5,
-    text: 'We hired The Bartenders Company for our annual gala and they exceeded every expectation. Flawless execution, premium spirits, and a team that genuinely cares about delivering an exceptional experience.',
-    avatar: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150&q=80',
-  },
-  {
-    name: 'Priya Kapoor',
-    role: 'Birthday Party Host',
-    rating: 5,
-    text: 'Absolutely incredible! They created a personalized cocktail menu for my 30th and every single drink was outstanding. Our guests are still talking about it months later.',
-    avatar: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&q=80',
-  },
-  {
-    name: 'Marcus Webb',
-    role: 'Festival Organizer',
-    rating: 5,
-    text: 'Managed a 2,000-person festival with zero hitches. The mobile bar team was quick, efficient, and incredibly professional. Will absolutely use The Bartenders Company for every future event.',
-    avatar: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150&q=80',
-  },
-];
+/**
+ * TODO(launch): paste the client's actual review below.
+ *
+ * `quote` is intentionally null. The photo is of a real, identifiable person,
+ * so the section renders as visibly unfinished until his real words are in —
+ * an invented quote under a real face is a fake endorsement, not a placeholder.
+ * Set `quote`, `name` and `rating` together, or leave all three alone.
+ *
+ * Keep it in his voice when it lands — a real review is specific and a bit
+ * uneven ("they turned up early and just got on with it"), not balanced
+ * marketing copy. Don't smooth out the rough edges; those are what make a
+ * reader believe it. Only set `rating` to the number of stars he actually gave.
+ */
+const review: {
+  quote: string | null;
+  name: string;
+  role: string;
+  rating: number | null;
+} = {
+  quote: null,
+  name: '',
+  role: '',
+  rating: null,
+};
 
 export default function Testimonials() {
+  const isPending = !review.quote;
+
   return (
-    <section
-      className="section-padding relative overflow-hidden"
-      style={{ background: 'linear-gradient(180deg, #161616 0%, #1c1c1c 100%)' }}
-    >
-      <div className="absolute inset-0 pointer-events-none opacity-20"
-        style={{ backgroundImage: 'radial-gradient(ellipse at center, rgba(212,160,23,0.08) 0%, transparent 70%)' }}
+    <section id="testimonials" className="section-padding relative overflow-hidden bg-cream-100">
+      <div
+        className="absolute inset-0 pointer-events-none opacity-60"
+        style={{
+          backgroundImage:
+            'radial-gradient(ellipse at center, rgba(246,222,38,0.18) 0%, transparent 70%)',
+        }}
       />
 
-      <div className="max-w-7xl mx-auto relative">
-        <FadeIn className="text-center mb-16">
-          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-gold-500 mb-4">
+      <div className="max-w-5xl mx-auto relative">
+        <FadeIn className="text-center mb-14">
+          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-charcoal-500 mb-4">
             Client Stories
           </span>
-          <h2 className="font-serif text-4xl sm:text-5xl font-bold text-white mb-5">
-            What Our <span className="text-gradient-gold">Clients Say</span>
+          <h2 className="font-serif text-4xl sm:text-5xl font-bold text-charcoal-950 mb-5">
+            What Our <span className="highlight-lemon">Clients Say</span>
           </h2>
-          <p className="text-charcoal-400 text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="text-charcoal-600 text-lg max-w-xl mx-auto leading-relaxed">
             Real experiences from clients who trusted us with their most cherished events.
           </p>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {testimonials.map((t, i) => (
-            <motion.div
-              key={t.name}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.6, delay: i * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-              whileHover={{ y: -4 }}
-              className="glass rounded-2xl p-7 relative group"
-            >
-              {/* Quote icon */}
-              <Quote className="absolute top-7 right-7 w-10 h-10 text-gold-500/15 group-hover:text-gold-500/25 transition-colors duration-300" />
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+          className="card-light rounded-3xl overflow-hidden grid grid-cols-1 md:grid-cols-[minmax(0,20rem)_1fr] md:min-h-[28rem]"
+        >
+          {/* Photo — cropped to head and shoulders; the full frame trails off
+              into chair and floor that add nothing to a testimonial. The card
+              needs its own min-height or a short quote collapses this to a strip. */}
+          <div className="relative aspect-[4/5] md:aspect-auto md:h-full">
+            <img
+              src={reviewPhoto}
+              alt="Client photographed at the event, accompanying their review"
+              width={550}
+              height={690}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover object-center"
+            />
+          </div>
 
-              {/* Stars */}
+          {/* Quote */}
+          <div className="p-8 sm:p-10 flex flex-col justify-center relative">
+            <Quote className="absolute top-8 right-8 w-10 h-10 text-lemon-500" />
+
+            {review.rating !== null && (
               <div className="flex gap-1 mb-5">
-                {Array.from({ length: t.rating }).map((_, idx) => (
-                  <Star key={idx} className="w-4 h-4 fill-gold-400 text-gold-400" />
+                {Array.from({ length: review.rating }).map((_, i) => (
+                  <Star key={i} className="w-4 h-4 fill-lemon-500 text-lemon-600" />
                 ))}
               </div>
+            )}
 
-              <p className="text-charcoal-300 leading-relaxed mb-6 text-sm">{t.text}</p>
-
-              <div className="flex items-center gap-3.5 pt-5 border-t border-gold-600/15">
-                <img
-                  src={t.avatar}
-                  alt={t.name}
-                  className="w-11 h-11 rounded-full object-cover ring-2 ring-gold-500/30"
-                />
-                <div>
-                  <div className="font-semibold text-white text-sm">{t.name}</div>
-                  <div className="text-xs text-gold-500">{t.role}</div>
-                </div>
+            {isPending ? (
+              <div className="rounded-xl border-2 border-dashed border-charcoal-300 bg-cream-100/60 p-6">
+                <span className="inline-block text-[10px] font-bold tracking-widest uppercase text-charcoal-950 bg-lemon-500 rounded px-2 py-1 mb-3">
+                  Placeholder — not a real review
+                </span>
+                <p className="text-charcoal-700 text-sm leading-relaxed">
+                  Paste the client's own words here, in his voice, along with his name
+                  and the star rating he actually gave. See the TODO at the top of{' '}
+                  <code className="font-mono text-xs bg-white px-1 py-0.5 rounded border border-charcoal-200">
+                    Testimonials.tsx
+                  </code>
+                  .
+                </p>
               </div>
-            </motion.div>
-          ))}
-        </div>
+            ) : (
+              <>
+                <blockquote className="font-serif text-2xl sm:text-3xl leading-snug text-charcoal-950 mb-6">
+                  “{review.quote}”
+                </blockquote>
+                <div className="pt-5 border-t border-charcoal-950/10">
+                  <div className="font-semibold text-charcoal-950">{review.name}</div>
+                  {review.role && (
+                    <div className="text-sm text-charcoal-500 mt-0.5">{review.role}</div>
+                  )}
+                </div>
+              </>
+            )}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

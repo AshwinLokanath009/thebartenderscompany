@@ -38,8 +38,8 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
             className="flex items-center gap-3 mb-7"
           >
-            <span className="w-8 h-px bg-gold-500" />
-            <span className="text-[11px] sm:text-xs tracking-[0.25em] uppercase text-gold-400 font-medium">
+            <span className="w-8 h-px bg-lemon-500" />
+            <span className="text-[11px] sm:text-xs tracking-[0.25em] uppercase text-lemon-400 font-medium">
               Private Bar Hire · Est. 2024
             </span>
           </motion.div>
@@ -65,8 +65,8 @@ export default function Hero() {
               >
                 <motion.path
                   d="M3 8 C 45 3, 90 3, 130 6 S 185 9, 197 5"
-                  stroke="#f2c40d"
-                  strokeWidth="3"
+                  stroke="#f6de26"
+                  strokeWidth="4"
                   strokeLinecap="round"
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
@@ -99,7 +99,7 @@ export default function Hero() {
           >
             <button
               onClick={() => scroll('#contact')}
-              className="group inline-flex items-center gap-2 bg-gold-500 hover:bg-gold-400 text-charcoal-950 font-semibold text-sm tracking-wide px-7 py-3.5 rounded-sm transition-colors duration-200"
+              className="group inline-flex items-center gap-2 bg-lemon-500 hover:bg-lemon-400 text-charcoal-950 font-semibold text-sm tracking-wide px-7 py-3.5 rounded-sm transition-colors duration-200"
             >
               Check availability
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -109,7 +109,7 @@ export default function Hero() {
               className="group inline-flex items-center gap-2 text-sm font-medium text-charcoal-200 hover:text-white transition-colors"
             >
               See a few nights we've done
-              <ArrowRight className="w-4 h-4 text-gold-400 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 text-lemon-400 transition-transform group-hover:translate-x-1" />
             </button>
           </motion.div>
 
@@ -122,7 +122,7 @@ export default function Hero() {
           >
             {facts.map((f, i) => (
               <li key={f} className="flex items-center gap-5">
-                {i > 0 && <span className="w-1 h-1 rounded-full bg-gold-600/60" />}
+                {i > 0 && <span className="w-1 h-1 rounded-full bg-lemon-500/70" />}
                 <span>{f}</span>
               </li>
             ))}
