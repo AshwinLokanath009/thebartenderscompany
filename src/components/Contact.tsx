@@ -55,7 +55,7 @@ export default function Contact() {
               href="https://wa.me/919663929391"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-semibold text-base text-charcoal-950 bg-white/70 border border-charcoal-950/15 hover:bg-white transition-all duration-200"
+              className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-semibold text-base text-charcoal-950 bg-white border border-charcoal-950/15 hover:bg-cream-100 transition-all duration-200"
             >
               <MessageCircle className="w-4 h-4" />
               WhatsApp Us
@@ -65,7 +65,11 @@ export default function Contact() {
 
         {/* Contact details */}
         <FadeIn delay={0.25}>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12">
+          {/* Stacked on mobile: the rows are different widths (the email is
+              longer), so centring each one individually leaves the icons on a
+              ragged left edge. Left-align them to a shared edge and centre the
+              group as a block instead. */}
+          <div className="flex flex-col items-start w-fit mx-auto gap-6 sm:w-auto sm:mx-0 sm:flex-row sm:items-center sm:justify-center sm:gap-12">
             <a
               href="tel:+919663929391"
               className="flex items-center gap-3 group"
