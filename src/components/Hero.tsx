@@ -6,7 +6,7 @@ import heroBg from '../assets/images/michael-odelberth-6xyLifyRV70-unsplash.webp
 const facts = [
   'Bengaluru, India',
   'Private & corporate events',
-  'Licensed & insured',
+  'Fully trained staff',
 ];
 
 export default function Hero() {
@@ -121,7 +121,7 @@ export default function Hero() {
             {facts.map((f, i) => (
               <li key={f} className="mr-6">
                 <span className="inline-flex items-center gap-2 whitespace-nowrap">
-                  {i > 0 && <span className="inline-block w-1 h-1 rounded-full bg-lemon-500/70" />}
+                  <span className="inline-block w-1 h-1 rounded-full bg-lemon-500/70" />
                   <span>{f}</span>
                 </span>
               </li>
