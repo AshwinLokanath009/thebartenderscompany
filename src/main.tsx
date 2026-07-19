@@ -4,12 +4,19 @@ import App from './App.tsx';
 import './index.css';
 
 const siteName = 'The Bartenders Company';
+const siteUrl = 'https://thebartenderscompany.com';
+const siteLocale = 'en_IN';
+const siteRegion = 'IN-KA';
+const siteCoordinates = {
+  latitude: 12.9716,
+  longitude: 77.5946,
+};
 const siteDescription =
-  'Professional bartender services for weddings, corporate events, birthday parties, and private celebrations in Bengaluru and beyond.';
+  'Bengaluru and Bangalore bartender services for weddings, corporate events, birthday parties, and private celebrations across Karnataka.';
 const siteImagePath = '/og-image.svg';
 
 function updateHeadTag(selector: string, attributes: Record<string, string>) {
-  let element = document.head.querySelector<HTMLMetaElement | HTMLLinkElement | HTMLScriptElement>(selector);
+  let element = document.head.querySelector<HTMLElement>(selector);
 
   if (!element) {
     const tagName = selector.startsWith('link') ? 'link' : selector.startsWith('script') ? 'script' : 'meta';
@@ -24,9 +31,15 @@ function updateHeadTag(selector: string, attributes: Record<string, string>) {
 
 function SeoBootstrap() {
   useEffect(() => {
-    const canonicalUrl = window.location.origin + window.location.pathname;
+    const isProductionHost =
+      window.location.hostname === 'thebartenderscompany.com' ||
+      window.location.hostname.endsWith('.thebartenderscompany.com');
+    const siteBaseUrl = isProductionHost ? siteUrl : window.location.origin;
+    const canonicalUrl = `${siteBaseUrl}${window.location.pathname}${window.location.search}`;
+    const imageUrl = `${siteBaseUrl}${siteImagePath}`;
 
-    document.title = `${siteName} | Premium Bartender Services`;
+    document.documentElement.lang = siteLocale;
+    document.title = `${siteName} | Bangalore Bartender Services`;
 
     updateHeadTag('meta[name="description"]', {
       name: 'description',
@@ -36,13 +49,29 @@ function SeoBootstrap() {
       name: 'robots',
       content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
     });
+    updateHeadTag('meta[name="geo.region"]', {
+      name: 'geo.region',
+      content: siteRegion,
+    });
+    updateHeadTag('meta[name="geo.placename"]', {
+      name: 'geo.placename',
+      content: 'Bengaluru, Bangalore, Karnataka, India',
+    });
+    updateHeadTag('meta[name="geo.position"]', {
+      name: 'geo.position',
+      content: `${siteCoordinates.latitude};${siteCoordinates.longitude}`,
+    });
+    updateHeadTag('meta[name="ICBM"]', {
+      name: 'ICBM',
+      content: `${siteCoordinates.latitude}, ${siteCoordinates.longitude}`,
+    });
     updateHeadTag('link[rel="canonical"]', {
       rel: 'canonical',
       href: canonicalUrl,
     });
     updateHeadTag('meta[property="og:title"]', {
       property: 'og:title',
-      content: `${siteName} | Premium Bartender Services`,
+      content: `${siteName} | Bangalore Bartender Services`,
     });
     updateHeadTag('meta[property="og:description"]', {
       property: 'og:description',
@@ -56,17 +85,29 @@ function SeoBootstrap() {
       property: 'og:url',
       content: canonicalUrl,
     });
+    updateHeadTag('meta[property="og:locale"]', {
+      property: 'og:locale',
+      content: siteLocale,
+    });
     updateHeadTag('meta[property="og:site_name"]', {
       property: 'og:site_name',
       content: siteName,
     });
     updateHeadTag('meta[property="og:image"]', {
       property: 'og:image',
-      content: `${window.location.origin}${siteImagePath}`,
+      content: imageUrl,
     });
     updateHeadTag('meta[property="og:image:alt"]', {
       property: 'og:image:alt',
-      content: `${siteName} branding preview`,
+      content: `${siteName} in Bengaluru, India`,
+    });
+    updateHeadTag('meta[property="og:image:width"]', {
+      property: 'og:image:width',
+      content: '1200',
+    });
+    updateHeadTag('meta[property="og:image:height"]', {
+      property: 'og:image:height',
+      content: '630',
     });
     updateHeadTag('meta[name="twitter:card"]', {
       name: 'twitter:card',
@@ -74,7 +115,7 @@ function SeoBootstrap() {
     });
     updateHeadTag('meta[name="twitter:title"]', {
       name: 'twitter:title',
-      content: `${siteName} | Premium Bartender Services`,
+      content: `${siteName} | Bangalore Bartender Services`,
     });
     updateHeadTag('meta[name="twitter:description"]', {
       name: 'twitter:description',
@@ -82,7 +123,7 @@ function SeoBootstrap() {
     });
     updateHeadTag('meta[name="twitter:image"]', {
       name: 'twitter:image',
-      content: `${window.location.origin}${siteImagePath}`,
+      content: imageUrl,
     });
 
     const schemaId = 'site-structured-data';
@@ -99,16 +140,24 @@ function SeoBootstrap() {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
       name: siteName,
+      alternateName: 'The Bartenders Company Bangalore',
       description: siteDescription,
       url: canonicalUrl,
-      image: `${window.location.origin}${siteImagePath}`,
+      image: imageUrl,
       telephone: '+91 96639 29391',
       email: 'ashwinlokanath009@gmail.com',
+      priceRange: 'Custom quotes',
+      currenciesAccepted: 'INR',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Bengaluru',
         addressRegion: 'Karnataka',
         addressCountry: 'IN',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: siteCoordinates.latitude,
+        longitude: siteCoordinates.longitude,
       },
       areaServed: ['Bengaluru', 'Karnataka', 'India'],
       serviceType: [
@@ -118,6 +167,13 @@ function SeoBootstrap() {
         'Mobile Bar Hire',
         'Cocktail Catering',
       ],
+      contactPoint: {
+        '@type': 'ContactPoint',
+        telephone: '+91 96639 29391',
+        contactType: 'customer service',
+        areaServed: 'IN',
+        availableLanguage: ['en', 'hi'],
+      },
     });
   }, []);
 

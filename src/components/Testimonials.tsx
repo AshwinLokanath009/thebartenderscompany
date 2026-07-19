@@ -1,6 +1,10 @@
 import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
 import { FadeIn } from './FadeIn';
+import shyamSundarPhoto from '../assets/images/REVIEW - SHYAM SUNDAR.jpeg';
+import abhiramiPhoto from '../assets/images/REVIEW - ABHIRAMI S.jpg';
+import rakshithPhoto from '../assets/images/RIVIEW - RAKSHITH.jpeg';
+import riyaShettyPhoto from '../assets/images/REVIEW - RIYA SHETTY.jpg';
 
 type Review = {
   /** The client's own words, as close to verbatim as you have them. */
@@ -9,10 +13,16 @@ type Review = {
   name: string;
   /** Optional context, e.g. "Wedding, Dec 2025". */
   role?: string;
+  /** Optional date to show alongside the role. */
+  date?: string;
   /** Only the number of stars they actually gave. Omit if you didn't get one. */
   rating?: number;
   /** Optional imported photo. Leave out and their initial is used instead. */
   photo?: string;
+  /** Optional crop focus for the circular avatar image. */
+  photoPosition?: string;
+  /** Optional zoom factor for the circular avatar image. */
+  photoZoom?: number;
 };
 
 /**
@@ -50,28 +60,45 @@ type Review = {
  */
 const reviews: Review[] = [
   {
-    quote: 'They turned up early and just got on with it. Guests are still asking about the espresso martinis.',
-    name: 'Priya',
-    role: 'Birthday party, Nov 2025',
+    quote:
+      'Booked The Bartenders Company for my sister\'s engagement, and they did an amazing job. The bartenders were very professional, friendly with the guests, and made some really good cocktails. Highly recommended for weddings and family events.',
+    name: 'Shyam',
+    role: 'Engagement celebration',
+    date: 'Jun 2026',
     rating: 5,
+    photo: shyamSundarPhoto,
+    photoZoom: 0.20,
   },
   {
-    quote: 'Professional, creative, and made our wedding reception absolutely unforgettable. The cocktails were perfectly balanced.',
-    name: 'Marcus',
-    role: 'Wedding, Oct 2025',
+    quote:
+      'From the first call till the event day, the team was very responsive and cooperative. The drinks were perfectly balanced, the presentation was elegant, and the bartenders had a great attitude throughout the evening.',
+    name: 'Abhirami S',
+    role: 'Housewarming party',
+    date: 'May 2026',
     rating: 5,
+    photo: abhiramiPhoto,
+    photoPosition: '42% 60%',
+    photoZoom: 1.20,
   },
   {
-    quote: 'Brought a level of sophistication to our corporate event that impressed everyone. Highly recommend.',
-    name: 'Sarah',
-    role: 'Corporate event, Jan 2026',
+    quote:
+      "We hired them for our corporate event in Bengaluru, and the experience exceeded expectations. The team arrived on time, set up everything quickly, and served with great professionalism.",
+    name: 'Rakshith',
+    role: 'Corporate event, Bengaluru',
+    date: 'Apr 2026',
     rating: 5,
+    photo: rakshithPhoto,
+    photoPosition: '50% 20%',
+    photoZoom: 1.20,
   },
   {
-    quote: 'The mixology skills were incredible. Every drink was a masterpiece, and the service was impeccable. Our guests are still talking about it.',
-    name: 'James',
-    role: 'Private dinner party, Feb 2026',
-    rating: 5,
+    quote:
+      'Absolutely loved the experience! We booked The Bartenders Company for my birthday celebration, and they truly made the evening special. The bartenders were polite, energetic, and interacted so well with everyone.',
+    name: 'Riya Shetty',
+    role: 'Birthday celebration',
+    date: 'Nov 2025',
+    rating: 4,
+    photo: riyaShettyPhoto,
   },
 ];
 
@@ -90,14 +117,18 @@ function Stars({ rating }: { rating: number }) {
 
 function Avatar({ review }: { review: Review }) {
   if (review.photo) {
+    const zoom = review.photoZoom ?? 1;
+
     return (
-      <img
-        src={review.photo}
-        alt={review.name}
-        width={550}
-        height={690}
-        loading="lazy"
-        className="w-11 h-11 rounded-full object-cover object-top ring-2 ring-lemon-500"
+      <div
+        role="img"
+        aria-label={review.name}
+        className="w-11 h-11 rounded-full ring-2 ring-lemon-500 bg-center bg-no-repeat bg-cover"
+        style={{
+          backgroundImage: `url(${review.photo})`,
+          backgroundPosition: review.photoPosition ?? '50% 20%',
+          backgroundSize: `${Math.max(zoom, 1) * 100}%`,
+        }}
       />
     );
   }
@@ -126,6 +157,7 @@ function ReviewCard({ review, i }: { review: Review; i: number }) {
         <div>
           <div className="font-semibold text-charcoal-950 text-sm">{review.name}</div>
           {review.role && <div className="text-xs text-charcoal-500">{review.role}</div>}
+          {review.date && <div className="text-xs text-charcoal-500 mt-0.5">{review.date}</div>}
         </div>
       </div>
     </motion.div>
@@ -212,6 +244,7 @@ function FeaturedReview({ review }: { review: Review }) {
           {review.role && (
             <div className="text-sm text-charcoal-500 mt-0.5">{review.role}</div>
           )}
+          {review.date && <div className="text-sm text-charcoal-500 mt-0.5">{review.date}</div>}
         </div>
       </div>
     </motion.div>
