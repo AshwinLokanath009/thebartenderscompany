@@ -28,6 +28,13 @@ export default function Navbar() {
     scrollToSection(href);
   };
 
+  const handleMobileNav = (href: string) => {
+    // Close the drawer first. Deferring the scroll one frame keeps the drawer's
+    // layout animation from cancelling the section scroll on mobile browsers.
+    setOpen(false);
+    requestAnimationFrame(() => scrollToSection(href));
+  };
+
   // At the top the bar floats over the dark hero photo; once scrolled it lands
   // on the cream page and flips to the light, full-colour logo treatment.
   const onLight = scrolled || open;
@@ -106,14 +113,14 @@ export default function Navbar() {
               {links.map((l) => (
                 <button
                   key={l.href}
-                  onClick={() => handleNav(l.href)}
+                  onClick={() => handleMobileNav(l.href)}
                   className="text-left px-3 py-3 text-base font-medium text-charcoal-700 hover:text-charcoal-950 hover:bg-lemon-500/15 rounded-lg transition-all duration-200"
                 >
                   {l.label}
                 </button>
               ))}
               <button
-                onClick={() => handleNav('#contact')}
+                onClick={() => handleMobileNav('#contact')}
                 className="mt-2 px-5 py-3 rounded-full text-sm font-semibold text-lemon-500 bg-charcoal-950 text-center shadow-md"
               >
                 Book Now
