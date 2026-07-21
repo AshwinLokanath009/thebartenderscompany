@@ -29,10 +29,18 @@ export default function Navbar() {
   };
 
   const handleMobileNav = (href: string) => {
-    // Close the drawer first. Deferring the scroll one frame keeps the drawer's
-    // layout animation from cancelling the section scroll on mobile browsers.
+    // The drawer's exit animation can interrupt scrollIntoView on mobile.
+    // Close it first, then scroll directly once that animation has finished.
     setOpen(false);
-    requestAnimationFrame(() => scrollToSection(href));
+    window.setTimeout(() => {
+      const target = document.querySelector(href);
+      if (!target) return;
+
+      const headerHeight = 80;
+      const top = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+      window.history.pushState(null, '', href);
+      window.scrollTo({ top, behavior: 'smooth' });
+    }, 300);
   };
 
   // At the top the bar floats over the dark hero photo; once scrolled it lands
@@ -111,20 +119,28 @@ export default function Navbar() {
           >
             <div className="flex flex-col gap-1 px-4 py-5">
               {links.map((l) => (
-                <button
+                <a
                   key={l.href}
-                  onClick={() => handleMobileNav(l.href)}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    handleMobileNav(l.href);
+                  }}
+                  href={l.href}
                   className="text-left px-3 py-3 text-base font-medium text-charcoal-700 hover:text-charcoal-950 hover:bg-lemon-500/15 rounded-lg transition-all duration-200"
                 >
                   {l.label}
-                </button>
+                </a>
               ))}
-              <button
-                onClick={() => handleMobileNav('#contact')}
+              <a
+                onClick={(event) => {
+                  event.preventDefault();
+                  handleMobileNav('#contact');
+                }}
+                href="#contact"
                 className="mt-2 px-5 py-3 rounded-full text-sm font-semibold text-lemon-500 bg-charcoal-950 text-center shadow-md"
               >
                 Book Now
-              </button>
+              </a>
             </div>
           </motion.div>
         )}
