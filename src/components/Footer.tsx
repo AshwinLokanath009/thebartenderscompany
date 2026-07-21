@@ -102,9 +102,9 @@ export default function Footer() {
             </h4>
             <ul className="space-y-4">
               <li>
-                <a href="tel:+919663929391" className="flex items-start gap-3 group">
+                <a href="tel:+919148624249" className="flex items-start gap-3 group">
                   <Phone className="w-4 h-4 text-lemon-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-charcoal-500 text-sm group-hover:text-charcoal-300 transition-colors">+91 96639 29391</span>
+                  <span className="text-charcoal-500 text-sm group-hover:text-charcoal-300 transition-colors">+91 91486 24249</span>
                 </a>
               </li>
               <li>

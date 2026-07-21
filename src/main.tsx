@@ -144,7 +144,7 @@ function SeoBootstrap() {
       description: siteDescription,
       url: canonicalUrl,
       image: imageUrl,
-      telephone: '+91 96639 29391',
+      telephone: '+91 91486 24249',
       email: 'ashwinlokanath009@gmail.com',
       priceRange: 'Custom quotes',
       currenciesAccepted: 'INR',
@@ -169,7 +169,7 @@ function SeoBootstrap() {
       ],
       contactPoint: {
         '@type': 'ContactPoint',
-        telephone: '+91 96639 29391',
+        telephone: '+91 91486 24249',
         contactType: 'customer service',
         areaServed: 'IN',
         availableLanguage: ['en', 'hi'],
