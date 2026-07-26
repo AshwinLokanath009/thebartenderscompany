@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thebartenderscompany.com/sitemap.xml
+Sitemap: https://www.thebartenderscompany.com/sitemap.xml
