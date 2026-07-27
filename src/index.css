@@ -117,6 +117,19 @@
     }
   }
 
+  /* Mobile Lighthouse runs need a stable, visible LCP candidate. The cinematic
+     transforms are retained on desktop, where they score 100, but do not run on
+     the constrained mobile viewport. This also removes unnecessary GPU work
+     during the first mobile paint. */
+  @media (max-width: 767px) {
+    .animate-kenburns, .hero-enter, .nav-enter {
+      animation: none !important;
+    }
+    .grain::after {
+      display: none;
+    }
+  }
+
   /* Skip layout/paint for long off-screen sections until a mobile user nears
      them. This leaves the hero responsive during initial rendering. */
   #services, #gallery, #testimonials, #contact, footer {
