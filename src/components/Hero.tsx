@@ -16,9 +16,15 @@ export default function Hero() {
     >
       {/* Full-bleed photograph */}
       <div className="absolute inset-0 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover animate-kenburns"
-          style={{ backgroundImage: `url(${heroBg})`, backgroundPosition: '65% center' }}
+        <img
+          src={heroBg}
+          alt=""
+          width={1600}
+          height={1067}
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover animate-kenburns"
+          style={{ objectPosition: '65% center' }}
         />
       </div>
 

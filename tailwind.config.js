@@ -38,8 +38,10 @@ export default {
         },
       },
       fontFamily: {
-        sans:  ['Inter', 'system-ui', 'sans-serif'],
-        serif: ['Fraunces', 'Playfair Display', 'Georgia', 'serif'],
+        // System fonts avoid a render-blocking third-party stylesheet on the
+        // first paint. Georgia preserves the editorial treatment of headings.
+        sans:  ['system-ui', '-apple-system', '"Segoe UI"', 'sans-serif'],
+        serif: ['Georgia', '"Times New Roman"', 'serif'],
       },
     },
   },
