@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { LogoLockup } from './Logo';
 import { scrollToSection } from '../lib/scroll';
@@ -48,11 +47,8 @@ export default function Navbar() {
   const onLight = scrolled || open;
 
   return (
-    <motion.nav
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+    <nav
+      className={`nav-enter fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         onLight
           ? 'bg-cream-50 border-b border-charcoal-950/10 shadow-sm shadow-charcoal-950/5'
           : 'bg-transparent'
@@ -107,15 +103,10 @@ export default function Navbar() {
       </div>
 
       {/* Mobile drawer */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
+      {open && (
+          <div
             id="mobile-menu"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden bg-cream-50 border-t border-charcoal-950/10"
+            className="mobile-menu-enter md:hidden overflow-hidden bg-cream-50 border-t border-charcoal-950/10"
           >
             <div className="flex flex-col gap-1 px-4 py-5">
               {links.map((l) => (
@@ -142,9 +133,8 @@ export default function Navbar() {
                 Book Now
               </a>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+          </div>
+      )}
+    </nav>
   );
 }

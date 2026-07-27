@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import { scrollToSection } from '../lib/scroll';
 import heroBg from '../assets/images/michael-odelberth-6xyLifyRV70-unsplash.webp';
@@ -30,25 +29,15 @@ export default function Hero() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pb-16 sm:pb-20 pt-32">
         <div className="max-w-2xl">
           {/* Kicker */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center gap-3 mb-7"
-          >
+          <div className="hero-enter hero-enter-1 flex items-center gap-3 mb-7">
             <span className="w-8 h-px bg-lemon-500" />
             <span className="text-[11px] sm:text-xs tracking-[0.25em] uppercase text-lemon-400 font-medium">
               Private Bar Hire · Est. 2024
             </span>
-          </motion.div>
+          </div>
 
           {/* Headline with a hand-drawn underline under one word */}
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-serif text-white font-semibold tracking-tight leading-[0.95] text-[2.75rem] sm:text-6xl lg:text-7xl"
-          >
+          <h1 className="hero-enter hero-enter-2 font-serif text-white font-semibold tracking-tight leading-[0.95] text-[2.75rem] sm:text-6xl lg:text-7xl">
             Every good party
             <br />
             has a{' '}
@@ -61,40 +50,27 @@ export default function Hero() {
                 preserveAspectRatio="none"
                 aria-hidden="true"
               >
-                <motion.path
+                <path
                   d="M3 8 C 45 3, 90 3, 130 6 S 185 9, 197 5"
                   stroke="#f6de26"
                   strokeWidth="4"
                   strokeLinecap="round"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 0.9, delay: 0.9, ease: 'easeInOut' }}
                 />
               </svg>
             </span>{' '}
             bartender
             <br />
             behind it.
-          </motion.h1>
+          </h1>
 
           {/* Subline — written like a person, not a brochure */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.25 }}
-            className="mt-7 text-charcoal-300 text-base sm:text-lg leading-relaxed max-w-lg"
-          >
+          <p className="hero-enter hero-enter-3 mt-7 text-charcoal-300 text-base sm:text-lg leading-relaxed max-w-lg">
             We bring the people, the kit and the cocktails your guests will still be
             talking about next week. You just tell us where the party is.
-          </motion.p>
+          </p>
 
           {/* Actions */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4"
-          >
+          <div className="hero-enter hero-enter-4 mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
             <button
               onClick={() => scrollToSection('#contact')}
               className="group inline-flex items-center gap-2 bg-lemon-500 hover:bg-lemon-400 text-charcoal-950 font-semibold text-sm tracking-wide px-7 py-3.5 rounded-sm transition-colors duration-200"
@@ -109,15 +85,10 @@ export default function Hero() {
               See a few nights we've done
               <ArrowRight className="w-4 h-4 text-lemon-400 transition-transform group-hover:translate-x-1" />
             </button>
-          </motion.div>
+          </div>
 
           {/* Honest credibility strip — not vanity stat counters */}
-          <motion.ul
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-14 flex flex-wrap items-center gap-y-2 text-xs sm:text-sm text-charcoal-400"
-          >
+          <ul className="hero-enter hero-enter-5 mt-14 flex flex-wrap items-center gap-y-2 text-xs sm:text-sm text-charcoal-400">
             {facts.map((f) => (
               <li key={f} className="mr-6">
                 <span className="inline-flex items-center gap-2 whitespace-nowrap">
@@ -126,7 +97,7 @@ export default function Hero() {
                 </span>
               </li>
             ))}
-          </motion.ul>
+          </ul>
         </div>
       </div>
     </section>

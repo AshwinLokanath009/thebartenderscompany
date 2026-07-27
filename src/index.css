@@ -64,6 +64,36 @@
   .animate-kenburns {
     animation: kenburns 22s ease-in-out infinite alternate;
   }
+
+  /* Tiny CSS-only entrance effects keep the first screen independent of the
+     animation library. They also honour reduced-motion preferences. */
+  .hero-enter {
+    animation: hero-enter 0.55s both ease-out;
+  }
+  .nav-enter {
+    animation: nav-enter 0.45s both ease-out;
+  }
+  .mobile-menu-enter {
+    animation: mobile-menu-enter 0.2s both ease-out;
+    transform-origin: top;
+  }
+  .hero-enter-1 { animation-delay: 0ms; }
+  .hero-enter-2 { animation-delay: 80ms; }
+  .hero-enter-3 { animation-delay: 180ms; }
+  .hero-enter-4 { animation-delay: 270ms; }
+  .hero-enter-5 { animation-delay: 360ms; }
+  @keyframes hero-enter {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes nav-enter {
+    from { opacity: 0; transform: translateY(-16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes mobile-menu-enter {
+    from { opacity: 0; transform: scaleY(0.96); }
+    to { opacity: 1; transform: scaleY(1); }
+  }
   @keyframes kenburns {
     0%   { transform: scale(1.08) translate(0, 0); }
     100% { transform: scale(1.2) translate(-1.5%, -1.5%); }
@@ -82,8 +112,15 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .animate-kenburns {
+    .animate-kenburns, .hero-enter {
       animation: none !important;
     }
+  }
+
+  /* Skip layout/paint for long off-screen sections until a mobile user nears
+     them. This leaves the hero responsive during initial rendering. */
+  #services, #gallery, #testimonials, #contact, footer {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
   }
 }

@@ -170,7 +170,7 @@ export default function Testimonials() {
   if (!hasReviews) return null;
 
   return (
-    <section id="testimonials" className="section-padding relative overflow-hidden bg-cream-100">
+    <section className="section-padding relative overflow-hidden bg-cream-100">
       <div
         className="absolute inset-0 pointer-events-none opacity-60"
         style={{

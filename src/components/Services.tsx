@@ -47,7 +47,7 @@ const card = {
 
 export default function Services() {
   return (
-    <section id="services" className="section-padding bg-cream-50 relative overflow-hidden">
+    <section className="section-padding bg-cream-50 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-lemon-500/20 blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-lemon-500/15 blur-3xl pointer-events-none" />

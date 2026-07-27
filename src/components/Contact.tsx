@@ -5,7 +5,7 @@ import contactBg from '../assets/images/ruben-mavarez-YA8NUxf8Wmk-unsplash.webp'
 
 export default function Contact() {
   return (
-    <section id="contact" className="section-padding bg-lemon-500 relative overflow-hidden">
+    <section className="section-padding bg-lemon-500 relative overflow-hidden">
       {/* Photo texture, multiplied into the lemon so it tints rather than greys
           out. Kept faint and blurred — at full detail the bottles read as
           stains on the yellow rather than texture. */}

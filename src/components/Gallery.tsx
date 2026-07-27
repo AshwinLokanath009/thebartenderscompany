@@ -99,7 +99,7 @@ export default function Gallery() {
   }, [selected]);
 
   return (
-    <section id="gallery" className="section-padding bg-white relative overflow-hidden">
+    <section className="section-padding bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative">
         <FadeIn className="text-center mb-16">
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-charcoal-500 mb-4">
