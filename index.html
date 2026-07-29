@@ -27,8 +27,8 @@
       href="./src/assets/images/michael-odelberth-6xyLifyRV70-unsplash.webp"
       fetchpriority="high"
     />
-    <title>The Bartenders Company | Luxury Private Bartending &amp; Event Mixology</title>
-    <meta name="description" content="Luxury private bartending, custom cocktail menus, and event mixology services for weddings, corporate events, and unforgettable celebrations." />
+    <title>Bengaluru Bartending Services | The Bartenders Company</title>
+    <meta name="description" content="Professional bartending, mobile bar hire and custom cocktail catering in Bengaluru for weddings, corporate events, birthdays and private celebrations." />
     <link rel="canonical" href="https://www.thebartenderscompany.com/" />
     <meta property="og:title" content="The Bartenders Company | Luxury Private Bartending &amp; Event Mixology" />
     <meta property="og:description" content="Luxury private bartending, custom cocktail menus, and event mixology services for weddings, corporate events, and unforgettable celebrations." />
@@ -48,43 +48,72 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "@id": "https://www.thebartenderscompany.com/#business",
-        "name": "The Bartenders Company",
-        "alternateName": "The Bartenders Company Bangalore",
-        "description": "Bengaluru and Bangalore bartender services for weddings, corporate events, birthday parties, and private celebrations across Karnataka.",
-        "url": "https://www.thebartenderscompany.com/",
-        "image": "https://www.thebartenderscompany.com/og-image.svg",
-        "telephone": "+91 91486 24249",
-        "email": "ashwinlokanath009@gmail.com",
-        "priceRange": "Custom quotes",
-        "currenciesAccepted": "INR",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Bengaluru",
-          "addressRegion": "Karnataka",
-          "addressCountry": "IN"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 12.9716,
-          "longitude": 77.5946
-        },
-        "areaServed": ["Bengaluru", "Karnataka", "India"],
-        "serviceType": [
-          "Wedding Bartending",
-          "Corporate Event Bartending",
-          "Birthday Party Bartending",
-          "Mobile Bar Hire",
-          "Cocktail Catering"
-        ],
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+91 91486 24249",
-          "contactType": "customer service",
-          "areaServed": "IN",
-          "availableLanguage": ["en", "hi"]
-        }
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://www.thebartenderscompany.com/#website",
+            "url": "https://www.thebartenderscompany.com/",
+            "name": "The Bartenders Company",
+            "inLanguage": "en-IN",
+            "publisher": { "@id": "https://www.thebartenderscompany.com/#business" }
+          },
+          {
+            "@type": "LocalBusiness",
+            "@id": "https://www.thebartenderscompany.com/#business",
+            "name": "The Bartenders Company",
+            "alternateName": "The Bartenders Company Bangalore",
+            "description": "Professional bartending, mobile bar hire and cocktail catering for weddings, corporate events and private celebrations in Bengaluru and across Karnataka.",
+            "url": "https://www.thebartenderscompany.com/",
+            "image": "https://www.thebartenderscompany.com/og-image.svg",
+            "telephone": "+91 91486 24249",
+            "email": "ashwinlokanath009@gmail.com",
+            "priceRange": "Custom quotes",
+            "currenciesAccepted": "INR",
+            "address": { "@type": "PostalAddress", "addressLocality": "Bengaluru", "addressRegion": "Karnataka", "addressCountry": "IN" },
+            "geo": { "@type": "GeoCoordinates", "latitude": 12.9716, "longitude": 77.5946 },
+            "areaServed": ["Bengaluru", "Karnataka", "India"],
+            "contactPoint": { "@type": "ContactPoint", "telephone": "+91 91486 24249", "contactType": "customer service", "areaServed": "IN", "availableLanguage": ["en", "hi"] },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Bartending services",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wedding Bartending", "areaServed": "Bengaluru" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Corporate Event Bartending", "areaServed": "Bengaluru" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Birthday Party Bartending", "areaServed": "Bengaluru" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mobile Bar Hire", "areaServed": "Bengaluru" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cocktail Catering", "areaServed": "Bengaluru" } }
+              ]
+            },
+            "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.75", "reviewCount": "4", "bestRating": "5", "worstRating": "1" },
+            "review": [
+              { "@type": "Review", "author": { "@type": "Person", "name": "Shyam" }, "datePublished": "2026-06", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "reviewBody": "Booked The Bartenders Company for my sister's engagement, and they did an amazing job. The bartenders were very professional, friendly with the guests, and made some really good cocktails." },
+              { "@type": "Review", "author": { "@type": "Person", "name": "Abhirami S" }, "datePublished": "2026-05", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "reviewBody": "From the first call till the event day, the team was very responsive and cooperative. The drinks were perfectly balanced, the presentation was elegant, and the bartenders had a great attitude throughout the evening." },
+              { "@type": "Review", "author": { "@type": "Person", "name": "Rakshith" }, "datePublished": "2026-04", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "reviewBody": "We hired them for our corporate event in Bengaluru, and the experience exceeded expectations. The team arrived on time, set up everything quickly, and served with great professionalism." },
+              { "@type": "Review", "author": { "@type": "Person", "name": "Riya Shetty" }, "datePublished": "2025-11", "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5" }, "reviewBody": "Absolutely loved the experience. We booked The Bartenders Company for my birthday celebration, and they truly made the evening special." }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://www.thebartenderscompany.com/#faq",
+            "mainEntity": [
+              { "@type": "Question", "name": "What areas do you serve?", "acceptedAnswer": { "@type": "Answer", "text": "We provide bartending and mobile bar services across Bengaluru, Bangalore and selected locations in Karnataka." } },
+              { "@type": "Question", "name": "What types of events do you cater for?", "acceptedAnswer": { "@type": "Answer", "text": "We cater for weddings, receptions, corporate events, birthdays, house parties, engagements, anniversaries, festivals and private celebrations." } },
+              { "@type": "Question", "name": "How far in advance should I book a bartender?", "acceptedAnswer": { "@type": "Answer", "text": "Contact us as soon as your date and venue are known; we also try to help with short-notice events when available." } },
+              { "@type": "Question", "name": "Can you create a custom cocktail menu?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can help create a cocktail and mocktail menu that suits your guests, event style and preferences." } },
+              { "@type": "Question", "name": "Do you provide mobile bar setups?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can recommend a mobile bar setup and the right service format for your venue and guest count." } },
+              { "@type": "Question", "name": "Do you serve mocktails too?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can include thoughtful non-alcoholic options so every guest has something enjoyable to drink." } },
+              { "@type": "Question", "name": "How many bartenders will my event need?", "acceptedAnswer": { "@type": "Answer", "text": "We recommend an appropriate team size based on guest count, event duration, menu and venue layout." } },
+              { "@type": "Question", "name": "Can you help with weddings?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our wedding bartending service can include menu planning, professional bartenders and coordinated bar service." } },
+              { "@type": "Question", "name": "Can you handle corporate events?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We support corporate gatherings, launches, team celebrations and client events with polished service." } },
+              { "@type": "Question", "name": "What is included in your bartending service?", "acceptedAnswer": { "@type": "Answer", "text": "Service can include trained bartenders, menu planning, bar tools, setup guidance and event coordination." } },
+              { "@type": "Question", "name": "Do you provide glassware and ingredients?", "acceptedAnswer": { "@type": "Answer", "text": "Requirements vary by event and venue. We recommend what should be arranged for a smooth service." } },
+              { "@type": "Question", "name": "How do I get a quote?", "acceptedAnswer": { "@type": "Answer", "text": "Call, WhatsApp or use the Book Now action with your event date, venue, guest count and requirements." } },
+              { "@type": "Question", "name": "Do you cater for small house parties?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can tailor a compact, high-quality service for intimate house parties and private gatherings." } },
+              { "@type": "Question", "name": "Can you work at our chosen venue?", "acceptedAnswer": { "@type": "Answer", "text": "Usually, yes. We coordinate with you and the venue on access, bar space, setup timing and requirements." } },
+              { "@type": "Question", "name": "What information should I share when booking?", "acceptedAnswer": { "@type": "Answer", "text": "Please share the event date, location, guest count, event type, timing and required service." } }
+            ]
+          }
+        ]
       }
     </script>
   </head>

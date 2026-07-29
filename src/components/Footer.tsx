@@ -1,14 +1,17 @@
-import { Instagram, Facebook, Twitter, Youtube, Phone, Mail, MapPin } from 'lucide-react';
+import { MessageCircle, Phone, Mail, MapPin } from 'lucide-react';
 import { LogoStacked } from './Logo';
 import { hasReviews } from './Testimonials';
 import { scrollToSection } from '../lib/scroll';
+import { trackLead } from '../lib/analytics';
 
 // The testimonials section hides itself until there are real reviews, so its
 // link is filtered out too — otherwise it scrolls to nothing.
 const quickLinks = [
   { label: 'Home',          href: '#home' },
   { label: 'Services',      href: '#services' },
+  { label: 'Why Choose Us', href: '#why-us' },
   { label: 'Gallery',       href: '#gallery' },
+  { label: 'FAQs',          href: '#faq' },
   ...(hasReviews ? [{ label: 'Testimonials', href: '#testimonials' }] : []),
   { label: 'Contact',       href: '#contact' },
 ];
@@ -22,11 +25,9 @@ const services = [
   'Festival Bar',
 ];
 
-const socials = [
-  { icon: <Instagram className="w-4 h-4" />, href: '#' },
-  { icon: <Facebook className="w-4 h-4" />,  href: '#' },
-  { icon: <Twitter className="w-4 h-4" />,   href: '#' },
-  { icon: <Youtube className="w-4 h-4" />,   href: '#' },
+const contactLinks = [
+  { label: 'Chat on WhatsApp', icon: <MessageCircle className="w-4 h-4" />, href: 'https://wa.me/919148624249', action: 'whatsapp_click' },
+  { label: 'Call The Bartenders Company', icon: <Phone className="w-4 h-4" />, href: 'tel:+919148624249', action: 'phone_click' },
 ];
 
 export default function Footer() {
@@ -48,13 +49,15 @@ export default function Footer() {
               <span className="block text-charcoal-600 text-xs mt-0.5">Bengaluru · Since 2024</span>
             </p>
             <div className="flex items-center gap-3">
-              {socials.map((s, i) => (
+              {contactLinks.map((link) => (
                 <a
-                  key={i}
-                  href={s.href}
+                  key={link.label}
+                  href={link.href}
+                  aria-label={link.label}
+                  onClick={() => trackLead({ action: link.action, label: link.label, location: 'footer' })}
                   className="w-9 h-9 rounded-full glass flex items-center justify-center text-charcoal-400 hover:text-lemon-500 hover:border-lemon-500/50 transition-all duration-200"
                 >
-                  {s.icon}
+                  {link.icon}
                 </a>
               ))}
             </div>
@@ -102,7 +105,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-4">
               <li>
-                <a href="tel:+919148624249" className="flex items-start gap-3 group">
+                <a href="tel:+919148624249" onClick={() => trackLead({ action: 'phone_click', label: '+91 91486 24249', location: 'footer_details' })} className="flex items-start gap-3 group">
                   <Phone className="w-4 h-4 text-lemon-500 mt-0.5 flex-shrink-0" />
                   <span className="text-charcoal-500 text-sm group-hover:text-charcoal-300 transition-colors">+91 91486 24249</span>
                 </a>

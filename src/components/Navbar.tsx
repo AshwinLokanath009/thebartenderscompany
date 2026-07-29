@@ -2,11 +2,14 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { LogoLockup } from './Logo';
 import { scrollToSection } from '../lib/scroll';
+import { trackLead } from '../lib/analytics';
 
 const links = [
   { label: 'Home',     href: '#home' },
   { label: 'Services', href: '#services' },
+  { label: 'Why Us',   href: '#why-us' },
   { label: 'Gallery',  href: '#gallery' },
+  { label: 'FAQs',     href: '#faq' },
   { label: 'Contact',  href: '#contact' },
 ];
 
@@ -78,7 +81,10 @@ export default function Navbar() {
             {/* Lemon on the dark hero; inverted to ink-on-lemon once the bar is
                 light, so it stays readable when the yellow band scrolls behind it. */}
             <button
-              onClick={() => handleNav('#contact')}
+              onClick={() => {
+                trackLead({ action: 'book_now_click', label: 'Book Now', location: 'desktop_nav' });
+                handleNav('#contact');
+              }}
               className={`ml-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-colors duration-200 ${
                 onLight
                   ? 'bg-charcoal-950 text-lemon-500 hover:bg-charcoal-900'
@@ -125,6 +131,7 @@ export default function Navbar() {
               <a
                 onClick={(event) => {
                   event.preventDefault();
+                  trackLead({ action: 'book_now_click', label: 'Book Now', location: 'mobile_nav' });
                   handleMobileNav('#contact');
                 }}
                 href="#contact"

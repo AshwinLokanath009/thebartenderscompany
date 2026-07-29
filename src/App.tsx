@@ -11,6 +11,8 @@ const Gallery = lazy(() => import('./components/Gallery'));
 const Testimonials = lazy(() => import('./components/Testimonials'));
 const Contact = lazy(() => import('./components/Contact'));
 const Footer = lazy(() => import('./components/Footer'));
+const HomepageDetails = lazy(() => import('./components/HomepageDetails'));
+const Faq = lazy(() => import('./components/Faq'));
 
 function DeferredSection({ id, minHeight, children }: { id?: string; minHeight: number; children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -45,8 +47,10 @@ function App() {
       <Hero />
       <DeferredSection id="services" minHeight={900}><Services /></DeferredSection>
       <DeferredSection minHeight={800}><Stats /></DeferredSection>
+      <DeferredSection id="why-us" minHeight={700}><HomepageDetails /></DeferredSection>
       <DeferredSection id="gallery" minHeight={1600}><Gallery /></DeferredSection>
       <DeferredSection id="testimonials" minHeight={1000}><Testimonials /></DeferredSection>
+      <DeferredSection id="faq" minHeight={1200}><Faq /></DeferredSection>
       <DeferredSection id="contact" minHeight={850}><Contact /></DeferredSection>
       <DeferredSection minHeight={400}><Footer /></DeferredSection>
     </div>

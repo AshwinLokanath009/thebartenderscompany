@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Phone, Mail, MessageCircle, ArrowRight } from 'lucide-react';
 import { FadeIn } from './FadeIn';
+import { trackLead } from '../lib/analytics';
 import contactBg from '../assets/images/ruben-mavarez-YA8NUxf8Wmk-unsplash.webp';
 
 export default function Contact() {
@@ -43,6 +44,7 @@ export default function Contact() {
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               href="tel:+919148624249"
+              onClick={() => trackLead({ action: 'phone_click', label: '+91 91486 24249', location: 'contact_cta' })}
               className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-semibold text-base text-lemon-500 bg-charcoal-950 shadow-xl shadow-charcoal-950/20 hover:bg-charcoal-900 transition-colors duration-200"
             >
               Book Now
@@ -53,6 +55,7 @@ export default function Contact() {
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               href="https://wa.me/919148624249"
+              onClick={() => trackLead({ action: 'whatsapp_click', label: 'WhatsApp', location: 'contact_cta' })}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-semibold text-base text-charcoal-950 bg-white border border-charcoal-950/15 hover:bg-cream-100 transition-all duration-200"
@@ -72,6 +75,7 @@ export default function Contact() {
           <div className="flex flex-col items-start w-fit mx-auto gap-6 sm:w-auto sm:mx-0 sm:flex-row sm:items-center sm:justify-center sm:gap-12">
             <a
               href="tel:+919148624249"
+              onClick={() => trackLead({ action: 'phone_click', label: '+91 91486 24249', location: 'contact_details' })}
               className="flex items-center gap-3 group"
             >
               <div className="w-10 h-10 rounded-full bg-charcoal-950 flex items-center justify-center text-lemon-500 group-hover:bg-charcoal-900 transition-all duration-200">

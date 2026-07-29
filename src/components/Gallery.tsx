@@ -3,10 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ZoomIn } from 'lucide-react';
 import { FadeIn } from './FadeIn';
 import eventImg from '../assets/images/long-truong-Y5PXVs1LpY4-unsplash.webp';
-import img1 from '../assets/images/IMG1.webp';
-import img2 from '../assets/images/IMG2.webp';
-import img3 from '../assets/images/IMG3.webp';
-import img4 from '../assets/images/IMG4.webp';
+import bartenderJiggerCocktail from '../assets/images/bartender-jigger-cocktail.webp';
+import doubleStrainedCoupeCocktail from '../assets/images/double-strained-coupe-cocktail.webp';
+import mangoGarnishedCocktail from '../assets/images/mango-garnished-cocktail.webp';
+import ginTonicCitrusGarnish from '../assets/images/gin-tonic-citrus-garnish.webp';
 
 /**
  * Real work photos lead; stock fills out the grid behind them.
@@ -16,26 +16,26 @@ import img4 from '../assets/images/IMG4.webp';
  */
 const images = [
   {
-    src: img1,
-    alt: 'Bartender pouring a measure from a jigger into a shaker behind the bar',
+    src: bartenderJiggerCocktail,
+    alt: 'Professional bartender measuring a cocktail with a jigger at a Bengaluru event bar',
     w: 736,
     h: 1104,
   },
   {
-    src: img2,
-    alt: 'Double-straining a cocktail into a chilled coupe',
+    src: doubleStrainedCoupeCocktail,
+    alt: 'Bartender double-straining a cocktail into a chilled coupe glass',
     w: 736,
     h: 1104,
   },
   {
-    src: img4,
-    alt: 'Two gin and tonics being built over ice with citrus and herb garnish',
+    src: ginTonicCitrusGarnish,
+    alt: 'Gin and tonic cocktails with citrus and herb garnish for private event guests',
     w: 736,
     h: 1102,
   },
   {
-    src: img3,
-    alt: 'Seasonal summer cocktail garnished with a mango slice',
+    src: mangoGarnishedCocktail,
+    alt: 'Seasonal mango-garnished cocktail prepared for a private celebration',
     w: 736,
     h: 1308,
   },

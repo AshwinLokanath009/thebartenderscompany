@@ -1,5 +1,6 @@
 import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import { scrollToSection } from '../lib/scroll';
+import { trackLead } from '../lib/analytics';
 import heroBg from '../assets/images/michael-odelberth-6xyLifyRV70-unsplash.webp';
 
 const facts = [
@@ -44,11 +45,11 @@ export default function Hero() {
 
           {/* Headline with a hand-drawn underline under one word */}
           <h1 className="hero-enter hero-enter-2 font-serif text-white font-semibold tracking-tight leading-[0.95] text-[2.75rem] sm:text-6xl lg:text-7xl">
-            Every good party
+            Professional bartenders
             <br />
-            has a{' '}
+            for your{' '}
             <span className="relative inline-block">
-              great
+              Bengaluru
               <svg
                 className="absolute -bottom-2 left-0 w-full"
                 viewBox="0 0 200 12"
@@ -64,21 +65,21 @@ export default function Hero() {
                 />
               </svg>
             </span>{' '}
-            bartender
-            <br />
-            behind it.
+            event
           </h1>
 
           {/* Subline — written like a person, not a brochure */}
           <p className="hero-enter hero-enter-3 mt-7 text-charcoal-300 text-base sm:text-lg leading-relaxed max-w-lg">
-            We bring the people, the kit and the cocktails your guests will still be
-            talking about next week. You just tell us where the party is.
+            The Bartenders Company provides professional bartenders, mobile bar setups and custom cocktail menus for weddings, corporate events and private parties across Bengaluru.
           </p>
 
           {/* Actions */}
           <div className="hero-enter hero-enter-4 mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
             <button
-              onClick={() => scrollToSection('#contact')}
+              onClick={() => {
+                trackLead({ action: 'book_now_click', label: 'Check availability', location: 'hero' });
+                scrollToSection('#contact');
+              }}
               className="group inline-flex items-center gap-2 bg-lemon-500 hover:bg-lemon-400 text-charcoal-950 font-semibold text-sm tracking-wide px-7 py-3.5 rounded-sm transition-colors duration-200"
             >
               Check availability

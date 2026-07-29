@@ -58,7 +58,7 @@ export default function Services() {
             What We Offer
           </span>
           <h2 className="font-serif text-4xl sm:text-5xl font-bold text-charcoal-950 mb-5">
-            Our <span className="highlight-lemon">Services</span>
+            Bartending and mobile bar services in <span className="highlight-lemon">Bengaluru</span>
           </h2>
           <p className="text-charcoal-600 text-lg max-w-2xl mx-auto leading-relaxed">
             From intimate gatherings to grand celebrations, our professional bartenders
