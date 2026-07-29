@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { useInView } from 'framer-motion';
 import { Users, Martini, MapPin } from 'lucide-react';
 import { FadeIn } from './FadeIn';
 
@@ -32,8 +31,22 @@ function useCountUp(target: number, active: boolean, duration = 1400) {
 }
 
 function StatItem({ icon: Icon, value, suffix, label }: (typeof stats)[number]) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-80px' });
+  const ref = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const element = ref.current;
+    if (!element || !('IntersectionObserver' in window)) {
+      setInView(true);
+      return;
+    }
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      setInView(true);
+      observer.disconnect();
+    }, { rootMargin: '80px' });
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
   const count = useCountUp(value, inView);
 
   return (

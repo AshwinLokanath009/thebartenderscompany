@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Phone, Mail, MessageCircle, ArrowRight } from 'lucide-react';
 import { FadeIn } from './FadeIn';
 import { trackLead } from '../lib/analytics';
@@ -40,20 +39,16 @@ export default function Contact() {
         {/* CTA Buttons */}
         <FadeIn delay={0.15}>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-14">
-            <motion.a
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
+            <a
               href="tel:+919148624249"
               onClick={() => trackLead({ action: 'phone_click', label: '+91 91486 24249', location: 'contact_cta' })}
               className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-8 py-4 rounded-full font-semibold text-base text-lemon-500 bg-charcoal-950 shadow-xl shadow-charcoal-950/20 hover:bg-charcoal-900 transition-colors duration-200"
             >
               Book Now
               <ArrowRight className="w-4 h-4" />
-            </motion.a>
+            </a>
 
-            <motion.a
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
+            <a
               href="https://wa.me/919148624249"
               onClick={() => trackLead({ action: 'whatsapp_click', label: 'WhatsApp', location: 'contact_cta' })}
               target="_blank"
@@ -62,7 +57,7 @@ export default function Contact() {
             >
               <MessageCircle className="w-4 h-4" />
               WhatsApp Us
-            </motion.a>
+            </a>
           </div>
         </FadeIn>
 

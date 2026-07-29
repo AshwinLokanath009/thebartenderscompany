@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Star, Quote } from 'lucide-react';
 import { FadeIn } from './FadeIn';
 import shyamSundarPhoto from '../assets/images/REVIEW - SHYAM SUNDAR.jpeg';
@@ -139,15 +138,9 @@ function Avatar({ review }: { review: Review }) {
   );
 }
 
-function ReviewCard({ review, i }: { review: Review; i: number }) {
+function ReviewCard({ review }: { review: Review }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.6, delay: (i % 2) * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-      whileHover={{ y: -4 }}
-      className="card-light card-light-hover rounded-2xl p-7 relative group transition-all duration-300"
+    <div className="card-light card-light-hover rounded-2xl p-7 relative group transition-all duration-300 hover:-translate-y-1"
     >
       <Quote className="absolute top-7 right-7 w-10 h-10 text-lemon-500" />
       {review.rating ? <Stars rating={review.rating} /> : null}
@@ -160,7 +153,7 @@ function ReviewCard({ review, i }: { review: Review; i: number }) {
           {review.date && <div className="text-xs text-charcoal-500 mt-0.5">{review.date}</div>}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -195,7 +188,7 @@ export default function Testimonials() {
         {reviews.length >= 2 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {reviews.map((r, i) => (
-              <ReviewCard key={r.name + i} review={r} i={i} />
+              <ReviewCard key={r.name + i} review={r} />
             ))}
           </div>
         ) : (
@@ -209,12 +202,7 @@ export default function Testimonials() {
 /** Single-review layout: big portrait beside the quote. */
 function FeaturedReview({ review }: { review: Review }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-      className={`card-light rounded-3xl overflow-hidden grid grid-cols-1 md:min-h-[28rem] ${
+    <div className={`card-light rounded-3xl overflow-hidden grid grid-cols-1 md:min-h-[28rem] ${
         review.photo ? 'md:grid-cols-[minmax(0,20rem)_1fr]' : ''
       }`}
     >
@@ -247,6 +235,6 @@ function FeaturedReview({ review }: { review: Review }) {
           {review.date && <div className="text-sm text-charcoal-500 mt-0.5">{review.date}</div>}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

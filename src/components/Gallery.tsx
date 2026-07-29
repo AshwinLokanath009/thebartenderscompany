@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { X, ZoomIn } from 'lucide-react';
 import { FadeIn } from './FadeIn';
 import eventImg from '../assets/images/long-truong-Y5PXVs1LpY4-unsplash.webp';
@@ -116,13 +115,9 @@ export default function Gallery() {
         {/* Masonry columns — the shots are a mix of portrait and landscape, so a
             fixed square grid would crop the tall ones to pieces. */}
         <div className="columns-2 lg:columns-3 gap-4">
-          {images.map((img, i) => (
+          {images.map((img) => (
             <div key={img.src} className="mb-4 break-inside-avoid">
-              <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.5, delay: (i % 3) * 0.07 }}
+              <div
                 className="relative group rounded-2xl overflow-hidden cursor-pointer"
                 onClick={() => setSelected(img.src)}
               >
@@ -142,28 +137,19 @@ export default function Gallery() {
                 </div>
                 {/* Lemon overlay border on hover */}
                 <div className="absolute inset-0 rounded-2xl border-2 border-lemon-500/0 group-hover:border-lemon-500 transition-all duration-300 pointer-events-none" />
-              </motion.div>
+              </div>
             </div>
           ))}
         </div>
       </div>
 
       {/* Lightbox */}
-      <AnimatePresence>
-        {selected && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
+      {selected && (
+          <div
             className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
             onClick={() => setSelected(null)}
           >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            <div
               className="relative max-w-4xl w-full rounded-2xl overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
@@ -174,10 +160,9 @@ export default function Gallery() {
               >
                 <X className="w-5 h-5" />
               </button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </div>
+          </div>
+      )}
     </section>
   );
 }

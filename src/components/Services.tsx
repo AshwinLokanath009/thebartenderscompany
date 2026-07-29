@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { GlassWater, Music, Building2, Cake, Car, Star } from 'lucide-react';
 import { FadeIn } from './FadeIn';
 
@@ -35,16 +34,6 @@ const services = [
   },
 ];
 
-const container = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
-};
-
-const card = {
-  hidden:  { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const } },
-};
-
 export default function Services() {
   return (
     <section className="section-padding bg-cream-50 relative overflow-hidden">
@@ -66,19 +55,11 @@ export default function Services() {
           </p>
         </FadeIn>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s) => (
-            <motion.div
+            <div
               key={s.title}
-              variants={card}
-              whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="card-light card-light-hover rounded-2xl p-8 group cursor-default transition-all duration-300"
+              className="card-light card-light-hover rounded-2xl p-8 group cursor-default transition-all duration-300 hover:-translate-y-1.5"
             >
               <div className="w-14 h-14 rounded-xl bg-lemon-500 flex items-center justify-center text-charcoal-950 mb-6 group-hover:bg-lemon-400 transition-all duration-300">
                 {s.icon}
@@ -86,9 +67,9 @@ export default function Services() {
               <h3 className="font-serif text-xl font-semibold text-charcoal-950 mb-3">{s.title}</h3>
               <p className="text-charcoal-600 leading-relaxed text-sm">{s.desc}</p>
               <div className="mt-6 h-0.5 bg-gradient-to-r from-lemon-500 to-transparent group-hover:from-lemon-600 transition-all duration-300" />
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

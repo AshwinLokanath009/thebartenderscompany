@@ -77,6 +77,13 @@
     animation: mobile-menu-enter 0.2s both ease-out;
     transform-origin: top;
   }
+  .fade-in {
+    animation: fade-in 0.55s both ease-out;
+    animation-delay: var(--fade-delay, 0s);
+  }
+  .fade-in-down { animation-name: fade-in-down; }
+  .fade-in-left { animation-name: fade-in-left; }
+  .fade-in-right { animation-name: fade-in-right; }
   .hero-enter-1 { animation-delay: 0ms; }
   .hero-enter-2 { animation-delay: 80ms; }
   .hero-enter-3 { animation-delay: 180ms; }
@@ -98,6 +105,22 @@
     0%   { transform: scale(1.08) translate(0, 0); }
     100% { transform: scale(1.2) translate(-1.5%, -1.5%); }
   }
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-in-down {
+    from { opacity: 0; transform: translateY(-18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fade-in-left {
+    from { opacity: 0; transform: translateX(18px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes fade-in-right {
+    from { opacity: 0; transform: translateX(-18px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
 
   /* Subtle film grain — adds analog texture so the hero doesn't read as flat */
   .grain::after {
@@ -112,7 +135,7 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .animate-kenburns, .hero-enter {
+    .animate-kenburns, .hero-enter, .fade-in {
       animation: none !important;
     }
   }
@@ -122,7 +145,7 @@
      the constrained mobile viewport. This also removes unnecessary GPU work
      during the first mobile paint. */
   @media (max-width: 767px) {
-    .animate-kenburns, .hero-enter, .nav-enter {
+    .animate-kenburns, .hero-enter, .nav-enter, .fade-in {
       animation: none !important;
     }
     .grain::after {
