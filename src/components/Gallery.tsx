@@ -29,7 +29,7 @@ const images = [
   },
   {
     src: doubleStrainedCoupeCocktail,
-    alt: 'Bartender double-straining a cocktail into a chilled coupe glass',
+    alt: 'Bartender double-straining a cocktail into a chilled coupe glass at a Bengaluru event',
     w: 736,
     h: 1104,
   },
@@ -47,13 +47,13 @@ const images = [
   },
   {
     src: 'https://images.pexels.com/photos/3323682/pexels-photo-3323682.jpeg?auto=compress&cs=tinysrgb&w=600&q=85',
-    alt: 'Signature cocktails garnished with citrus and rosemary',
+    alt: 'Signature cocktails garnished with citrus and rosemary at a Bengaluru party bar',
     w: 600,
     h: 900,
   },
   {
     src: 'https://images.pexels.com/photos/2795026/pexels-photo-2795026.jpeg?auto=compress&cs=tinysrgb&w=600&q=85',
-    alt: 'Vibrant craft cocktail on a moody bar top',
+    alt: 'Vibrant craft cocktail on a moody bar top at a private event in Bengaluru',
     w: 600,
     h: 900,
   },
@@ -83,7 +83,7 @@ const images = [
   },
   {
     src: eventImg,
-    alt: 'Live event crowd under the lights',
+    alt: 'Guests enjoying the bar at a live event in Bengaluru',
     w: 1100,
     h: 733,
   },
@@ -107,13 +107,13 @@ const images = [
   },
   {
     src: 'https://images.pexels.com/photos/4021983/pexels-photo-4021983.jpeg?auto=compress&cs=tinysrgb&w=600&q=85',
-    alt: 'Freshly mixed drink with lemon garnish',
+    alt: 'Freshly mixed cocktail with lemon garnish served at a wedding bar',
     w: 600,
     h: 900,
   },
   {
     src: 'https://images.pexels.com/photos/3407778/pexels-photo-3407778.jpeg?auto=compress&cs=tinysrgb&w=600&q=85',
-    alt: 'Espresso martini in a coupe glass',
+    alt: 'Espresso martini in a coupe glass made by an event bartender',
     w: 600,
     h: 900,
   },

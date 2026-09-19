@@ -1,4 +1,4 @@
-import { Phone, Mail, MessageCircle, Instagram, ArrowRight } from 'lucide-react';
+import { Phone, Mail, MessageCircle, Instagram, MapPin, ArrowRight } from 'lucide-react';
 import { FadeIn } from './FadeIn';
 import { trackLead } from '../lib/analytics';
 import contactBg from '../assets/images/ruben-mavarez-YA8NUxf8Wmk-unsplash.webp';
@@ -114,6 +114,29 @@ export default function Contact() {
                 <div className="text-charcoal-950 font-medium group-hover:underline">@the_bartenderscompany</div>
               </div>
             </a>
+          </div>
+        </FadeIn>
+
+        {/* Location map — reinforces local relevance for "near me" / Bengaluru
+            searches and lets guests find the base. Lazy-loaded so it never
+            blocks first paint. */}
+        <FadeIn delay={0.35}>
+          <div className="mt-14 max-w-3xl mx-auto">
+            <div className="flex items-center justify-center gap-2 mb-4 text-charcoal-950/70 text-sm">
+              <MapPin className="w-4 h-4 text-charcoal-950" />
+              <span>Bengaluru, Karnataka · Serving events across the city</span>
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-charcoal-950/10 shadow-sm">
+              <iframe
+                title="The Bartenders Company location in Bengaluru"
+                src="https://www.google.com/maps?q=The+Bartenders+Company,+Mariyappana+Palya,+Jnana+Ganga+Nagar,+Bengaluru,+Karnataka+560056&output=embed"
+                width="100%"
+                height="320"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="block w-full border-0"
+              />
+            </div>
           </div>
         </FadeIn>
       </div>

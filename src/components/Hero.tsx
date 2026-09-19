@@ -20,8 +20,8 @@ export default function Hero() {
         <img
           src={heroBg}
           alt=""
-          width={1600}
-          height={1067}
+          width={1279}
+          height={1600}
           fetchPriority="high"
           decoding="async"
           className="absolute inset-0 w-full h-full object-cover animate-kenburns"
