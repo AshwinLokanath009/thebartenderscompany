@@ -117,12 +117,6 @@ const images = [
     w: 600,
     h: 900,
   },
-  {
-    src: 'https://images.pexels.com/photos/339696/pexels-photo-339696.jpeg?auto=compress&cs=tinysrgb&w=1000&q=85',
-    alt: 'Whiskey on the rocks with a dramatic splash',
-    w: 1000,
-    h: 667,
-  },
 ];
 
 export default function Gallery() {
