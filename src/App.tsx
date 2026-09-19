@@ -47,8 +47,8 @@ function App() {
       <Hero />
       <DeferredSection id="services" minHeight={900}><Services /></DeferredSection>
       <DeferredSection minHeight={800}><Stats /></DeferredSection>
-      <DeferredSection id="why-us" minHeight={700}><HomepageDetails /></DeferredSection>
       <DeferredSection id="gallery" minHeight={1600}><Gallery /></DeferredSection>
+      <DeferredSection id="why-us" minHeight={700}><HomepageDetails /></DeferredSection>
       <DeferredSection id="testimonials" minHeight={1000}><Testimonials /></DeferredSection>
       <DeferredSection id="faq" minHeight={1200}><Faq /></DeferredSection>
       <DeferredSection id="contact" minHeight={850}><Contact /></DeferredSection>

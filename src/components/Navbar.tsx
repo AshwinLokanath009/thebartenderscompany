@@ -7,8 +7,8 @@ import { trackLead } from '../lib/analytics';
 const links = [
   { label: 'Home',     href: '#home' },
   { label: 'Services', href: '#services' },
-  { label: 'Why Us',   href: '#why-us' },
   { label: 'Gallery',  href: '#gallery' },
+  { label: 'Why Us',   href: '#why-us' },
   { label: 'FAQs',     href: '#faq' },
   { label: 'Contact',  href: '#contact' },
 ];
