@@ -1,4 +1,4 @@
-import { Phone, Mail, MessageCircle, ArrowRight } from 'lucide-react';
+import { Phone, Mail, MessageCircle, Instagram, ArrowRight } from 'lucide-react';
 import { FadeIn } from './FadeIn';
 import { trackLead } from '../lib/analytics';
 import contactBg from '../assets/images/ruben-mavarez-YA8NUxf8Wmk-unsplash.webp';
@@ -94,6 +94,24 @@ export default function Contact() {
               <div className="text-left">
                 <div className="text-xs text-charcoal-950/60 uppercase tracking-wider">Email Us</div>
                 <div className="text-charcoal-950 font-medium group-hover:underline">ashwinlokanath009@gmail.com</div>
+              </div>
+            </a>
+
+            <div className="hidden sm:block w-px h-10 bg-charcoal-950/20" />
+
+            <a
+              href="https://www.instagram.com/the_bartenderscompany"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackLead({ action: 'instagram_click', label: '@the_bartenderscompany', location: 'contact_details' })}
+              className="flex items-center gap-3 group"
+            >
+              <div className="w-10 h-10 rounded-full bg-charcoal-950 flex items-center justify-center text-lemon-500 group-hover:bg-charcoal-900 transition-all duration-200">
+                <Instagram className="w-4 h-4" />
+              </div>
+              <div className="text-left">
+                <div className="text-xs text-charcoal-950/60 uppercase tracking-wider">Follow Us</div>
+                <div className="text-charcoal-950 font-medium group-hover:underline">@the_bartenderscompany</div>
               </div>
             </a>
           </div>

@@ -1,4 +1,4 @@
-import { MessageCircle, Phone, Mail, MapPin } from 'lucide-react';
+import { MessageCircle, Phone, Mail, MapPin, Instagram } from 'lucide-react';
 import { LogoStacked } from './Logo';
 import { hasReviews } from './Testimonials';
 import { scrollToSection } from '../lib/scroll';
@@ -26,8 +26,9 @@ const services = [
 ];
 
 const contactLinks = [
-  { label: 'Chat on WhatsApp', icon: <MessageCircle className="w-4 h-4" />, href: 'https://wa.me/919148624249', action: 'whatsapp_click' },
-  { label: 'Call The Bartenders Company', icon: <Phone className="w-4 h-4" />, href: 'tel:+919148624249', action: 'phone_click' },
+  { label: 'Chat on WhatsApp', icon: <MessageCircle className="w-4 h-4" />, href: 'https://wa.me/919148624249', action: 'whatsapp_click', external: true },
+  { label: 'Call The Bartenders Company', icon: <Phone className="w-4 h-4" />, href: 'tel:+919148624249', action: 'phone_click', external: false },
+  { label: 'Follow on Instagram', icon: <Instagram className="w-4 h-4" />, href: 'https://www.instagram.com/the_bartenderscompany', action: 'instagram_click', external: true },
 ];
 
 export default function Footer() {
@@ -54,6 +55,7 @@ export default function Footer() {
                   key={link.label}
                   href={link.href}
                   aria-label={link.label}
+                  {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                   onClick={() => trackLead({ action: link.action, label: link.label, location: 'footer' })}
                   className="w-9 h-9 rounded-full glass flex items-center justify-center text-charcoal-400 hover:text-lemon-500 hover:border-lemon-500/50 transition-all duration-200"
                 >
