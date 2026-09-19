@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { X, ZoomIn } from 'lucide-react';
 import { FadeIn } from './FadeIn';
 import eventImg from '../assets/images/long-truong-Y5PXVs1LpY4-unsplash.webp';
@@ -6,12 +6,19 @@ import bartenderJiggerCocktail from '../assets/images/bartender-jigger-cocktail.
 import doubleStrainedCoupeCocktail from '../assets/images/double-strained-coupe-cocktail.webp';
 import mangoGarnishedCocktail from '../assets/images/mango-garnished-cocktail.webp';
 import ginTonicCitrusGarnish from '../assets/images/gin-tonic-citrus-garnish.webp';
+import gardenArchedBar from '../assets/images/garden-arched-bar-floral.jpg';
+import velvetLoungeBar from '../assets/images/velvet-lounge-bar-gold-shelving.jpg';
+import discoBallRoundBar from '../assets/images/disco-ball-round-bar-florals.jpg';
+import coralTentedBar from '../assets/images/coral-tented-bar-lanterns.jpg';
+import blueMarqueeBar from '../assets/images/blue-marquee-arched-bar.jpg';
+import burgundyMosaicBar from '../assets/images/burgundy-mosaic-arched-bar.jpg';
+import emeraldArchedBar from '../assets/images/emerald-arched-bar-candlelit.jpg';
 
 /**
- * Real work photos lead; stock fills out the grid behind them.
+ * A single mixed set — custom bar builds and cocktail shots together.
  * `w`/`h` are the intrinsic pixel sizes — they reserve the right box before the
- * image loads, which matters here because the masonry columns would otherwise
- * reflow as each one arrives.
+ * image loads, so the masonry columns don't reflow as each one arrives (this is
+ * what lets us shuffle the order freely without the layout jumping around).
  */
 const images = [
   {
@@ -50,14 +57,53 @@ const images = [
     w: 600,
     h: 900,
   },
-  // The two landscape shots are placed to even out the column heights — the
-  // browser balances masonry columns in source order, and grouping the tall
-  // portraits together otherwise leaves a hole in the middle column.
+  {
+    src: gardenArchedBar,
+    alt: 'Custom arched garden bar dressed with cascading florals at an outdoor celebration',
+    w: 738,
+    h: 1519,
+  },
+  {
+    src: velvetLoungeBar,
+    alt: 'Moody lounge bar with velvet drapes, gold shelving and candlelit florals',
+    w: 1125,
+    h: 1379,
+  },
+  {
+    src: discoBallRoundBar,
+    alt: 'Round white bar under mirror balls and blush draping with tall floral arrangements',
+    w: 1125,
+    h: 1261,
+  },
+  {
+    src: coralTentedBar,
+    alt: 'Coral circular bar with hanging lanterns and a lush floral centrepiece inside a marquee',
+    w: 1125,
+    h: 1264,
+  },
   {
     src: eventImg,
     alt: 'Live event crowd under the lights',
     w: 1100,
     h: 733,
+  },
+  {
+    src: blueMarqueeBar,
+    alt: 'Powder-blue arched back bar with glassware styled inside a marquee',
+    w: 1125,
+    h: 1233,
+  },
+  {
+    src: burgundyMosaicBar,
+    alt: 'Burgundy bar with a mirrored mosaic base and arched candlelit shelving',
+    w: 1125,
+    h: 1526,
+  },
+  {
+    src: emeraldArchedBar,
+    alt: 'Emerald green arched bar with candlelight and floral wallpaper detailing',
+    w: 1125,
+    h: 1370,
   },
   {
     src: 'https://images.pexels.com/photos/4021983/pexels-photo-4021983.jpeg?auto=compress&cs=tinysrgb&w=600&q=85',
@@ -81,6 +127,18 @@ const images = [
 
 export default function Gallery() {
   const [selected, setSelected] = useState<string | null>(null);
+
+  // Shuffle once per mount so the bar builds and cocktail shots read as one
+  // curated mix rather than grouped by type — a fresh arrangement each visit.
+  // useMemo keeps the order stable across re-renders (e.g. opening the lightbox).
+  const shuffled = useMemo(() => {
+    const list = [...images];
+    for (let i = list.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [list[i], list[j]] = [list[j], list[i]];
+    }
+    return list;
+  }, []);
 
   // Esc closes the lightbox, and the page behind it stays put while it's open.
   useEffect(() => {
@@ -115,7 +173,7 @@ export default function Gallery() {
         {/* Masonry columns — the shots are a mix of portrait and landscape, so a
             fixed square grid would crop the tall ones to pieces. */}
         <div className="columns-2 lg:columns-3 gap-4">
-          {images.map((img) => (
+          {shuffled.map((img) => (
             <div key={img.src} className="mb-4 break-inside-avoid">
               <div
                 className="relative group rounded-2xl overflow-hidden cursor-pointer"
